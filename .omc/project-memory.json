@@ -1,0 +1,252 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776029995892,
+  "projectRoot": "/Users/mehmetcanbudak/Projects/ahmet/woof",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "npx serve . -p 3000 --no-clipboard",
+      "build": "node build.mjs",
+      "preview": "npm run build && npx serve dist -p 3001 --no-clipboard"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 41,
+      "lastAccessed": 1776029995618,
+      "keyFiles": [
+        "americano.jpg",
+        "americano.webp",
+        "banana-bread.jpg",
+        "banana-bread.webp",
+        "bandana.jpg"
+      ]
+    },
+    "css": {
+      "path": "css",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1776029995628,
+      "keyFiles": [
+        "base.css",
+        "components.css",
+        "layout.css",
+        "tokens.css"
+      ]
+    },
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 5,
+      "lastAccessed": 1776029995675,
+      "keyFiles": [
+        "favicon.svg",
+        "index.html",
+        "manifest.json",
+        "robots.txt",
+        "sitemap.xml"
+      ]
+    },
+    "images": {
+      "path": "images",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1776029995675,
+      "keyFiles": [
+        "apple-touch-icon.png",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "hero.jpg",
+        "hero.webp"
+      ]
+    },
+    "js": {
+      "path": "js",
+      "purpose": null,
+      "fileCount": 12,
+      "lastAccessed": 1776029995677,
+      "keyFiles": [
+        "cursor-hover.js",
+        "form.js",
+        "lazy-map.js",
+        "main.js",
+        "mobile-nav.js"
+      ]
+    },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 41,
+      "lastAccessed": 1776029995680,
+      "keyFiles": [
+        "americano.jpg",
+        "americano.webp",
+        "banana-bread.jpg"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "",
+      "accessCount": 20,
+      "lastAccessed": 1776031998195,
+      "type": "directory"
+    },
+    {
+      "path": "css/tokens.css",
+      "accessCount": 13,
+      "lastAccessed": 1776032171505,
+      "type": "file"
+    },
+    {
+      "path": "css",
+      "accessCount": 11,
+      "lastAccessed": 1776032009156,
+      "type": "directory"
+    },
+    {
+      "path": "css/base.css",
+      "accessCount": 9,
+      "lastAccessed": 1776031930508,
+      "type": "file"
+    },
+    {
+      "path": "css/layout.css",
+      "accessCount": 8,
+      "lastAccessed": 1776031931691,
+      "type": "file"
+    },
+    {
+      "path": "css/components.css",
+      "accessCount": 7,
+      "lastAccessed": 1776032172375,
+      "type": "file"
+    },
+    {
+      "path": "js/cursor-hover.js",
+      "accessCount": 7,
+      "lastAccessed": 1776032184471,
+      "type": "file"
+    },
+    {
+      "path": "js/form.js",
+      "accessCount": 7,
+      "lastAccessed": 1776032199878,
+      "type": "file"
+    },
+    {
+      "path": "js/lazy-map.js",
+      "accessCount": 4,
+      "lastAccessed": 1776031920719,
+      "type": "file"
+    },
+    {
+      "path": "js/slideshow.js",
+      "accessCount": 4,
+      "lastAccessed": 1776031921351,
+      "type": "file"
+    },
+    {
+      "path": "js/smooth-scroll.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031920770,
+      "type": "file"
+    },
+    {
+      "path": "js/navbar.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031920937,
+      "type": "file"
+    },
+    {
+      "path": "js/utils.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031920962,
+      "type": "file"
+    },
+    {
+      "path": "js/scroll-reveal.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031920983,
+      "type": "file"
+    },
+    {
+      "path": "js/theme.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031921029,
+      "type": "file"
+    },
+    {
+      "path": "js/main.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031921095,
+      "type": "file"
+    },
+    {
+      "path": "js/mobile-nav.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031921170,
+      "type": "file"
+    },
+    {
+      "path": "js/modal.js",
+      "accessCount": 3,
+      "lastAccessed": 1776031921244,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 3,
+      "lastAccessed": 1776031932456,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1776030463306,
+      "type": "file"
+    },
+    {
+      "path": "js",
+      "accessCount": 1,
+      "lastAccessed": 1776031981171,
+      "type": "directory"
+    }
+  ],
+  "userDirectives": []
+}

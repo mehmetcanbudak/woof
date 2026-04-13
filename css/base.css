@@ -1,0 +1,547 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  background: var(--color-bark-dark);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  line-height: var(--leading-relaxed);
+  overflow-x: hidden;
+}
+
+/* Smooth theme transition (activated via JS) */
+html.theme-transitioning body,
+html.theme-transitioning section,
+html.theme-transitioning nav,
+html.theme-transitioning footer {
+  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
+}
+
+/* Grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-skip);
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+html.dark body::after {
+  mix-blend-mode: soft-light;
+  opacity: 0.06;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a, button, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+}
+
+/* ============================================
+   SKIP LINK (Accessibility)
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-xl);
+  z-index: var(--z-skip);
+  background: var(--color-bark);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  padding: var(--space-md) var(--space-3xl);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+}
+
+/* ============================================
+   FOCUS-VISIBLE SYSTEM
+   ============================================ */
+
+/* Layer 1: Fallback focus for all interactive elements */
+:where(a, button, input, select, textarea, [tabindex]):focus {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Layer 2: Suppress ring for mouse clicks */
+:where(a, button, input, select, textarea, [tabindex]):focus:not(:focus-visible) {
+  outline: 2px solid transparent;
+}
+
+/* Layer 3: Keyboard-visible ring */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Variant for dark backgrounds */
+.btn--outline:focus-visible,
+.navbar__cta:focus-visible,
+.navbar__link:focus-visible,
+.navbar__mobile-toggle:focus-visible {
+  --focus-ring-color: var(--focus-ring-color-on-dark);
+}
+
+/* Windows High Contrast Mode */
+@media (forced-colors: active) {
+  :focus,
+  :focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.heading-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 7.5vw, 6rem);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+.heading-section {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: var(--leading-close);
+  letter-spacing: var(--tracking-slight);
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.heading-sub {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: var(--leading-sub);
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.label-text {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.body-text {
+  font-size: clamp(var(--text-body), 1.2vw, var(--text-sub));
+  line-height: var(--leading-loose);
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+.body-text--muted {
+  font-size: clamp(var(--text-body), 1.2vw, var(--text-sub));
+  line-height: var(--leading-loose);
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.text-coral {
+  color: var(--color-coral);
+}
+
+.text-honey {
+  color: var(--color-honey);
+}
+
+.heading-mega {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-mega);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+}
+
+.about__text::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.1em;
+  color: var(--color-coral);
+  font-weight: 400;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+}
+
+.section-padding {
+  padding: var(--section-padding) 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Performance: skip rendering off-screen sections */
+/* Disabled for screen readers — content-visibility can hide from a11y tree */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .about,
+  .shop,
+  .grooming,
+  .booking,
+  .contact,
+  .footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
+  }
+}
+
+/* Scroll offset for anchor targets */
+section[id] {
+  scroll-margin-top: var(--scroll-offset);
+}
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ============================================
+   ENTRANCE ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes clipReveal {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+/* ============================================
+   VARIED REVEAL VARIATIONS
+   ============================================ */
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+.reveal--left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+.reveal--scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal--clip {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 0.7s var(--ease-out),
+    clip-path 0.7s var(--ease-out);
+}
+
+.reveal--clip.is-visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+/* Scroll-linked subtle parallax */
+.reveal--parallax {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+
+.reveal--parallax.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.4s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.48s; }
+.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.56s; }
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated divider — grows from center */
+.divider--animated {
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.divider--animated.is-visible {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   HERO ENTRANCE CHOREOGRAPHY
+   ============================================ */
+.hero-enter .hero__label {
+  animation: fadeInUp 0.8s var(--ease-out) 0.1s both;
+}
+
+.hero-enter .hero__title {
+  animation: fadeInUp 0.8s var(--ease-out) 0.25s both;
+}
+
+.hero-enter .hero__subtitle {
+  animation: fadeInUp 0.8s var(--ease-out) 0.4s both;
+}
+
+.hero-enter .hero__actions {
+  animation: fadeInUp 0.8s var(--ease-out) 0.55s both;
+}
+
+.hero-enter .hero__right {
+  animation: fadeInUp 0.8s var(--ease-out) 0.35s both;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  background: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out);
+}
+
+.page-loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-loader__letter {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(4rem, 12vw, 10rem);
+  color: var(--color-bark);
+  animation: loaderPulse 0.8s var(--ease-out) both;
+}
+
+@keyframes loaderPulse {
+  from { opacity: 0; transform: scale(1.2); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+html.page-loaded .page-loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-coral);
+  z-index: var(--z-progress);
+  transition: none;
+  pointer-events: none;
+}
+
+/* ============================================
+   REDUCED MOTION (Global)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cursor-img {
+    display: none !important;
+  }
+
+  .page-loader__letter {
+    animation: none;
+  }
+
+  .reveal--left,
+  .reveal--scale,
+  .reveal--clip,
+  .divider--animated {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
+
+  .hero-enter .hero__label,
+  .hero-enter .hero__title,
+  .hero-enter .hero__subtitle,
+  .hero-enter .hero__actions,
+  .hero-enter .hero__right {
+    animation: none;
+  }
+}
+
+/* ============================================
+   DARK MODE — base overrides
+   ============================================ */
+html.dark {
+  background: var(--color-warm-1200);
+}
+
+html.dark body {
+  background: var(--color-bg-primary);
+}
+
+html.dark .skip-link {
+  background: var(--color-warm-1100);
+  color: var(--color-warm-50);
+}
+
+html.dark .divider {
+  background: var(--color-warm-400);
+}

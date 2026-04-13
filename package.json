@@ -1,0 +1,17 @@
+{
+  "name": "woofbox",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve . -p 3000 --no-clipboard",
+    "build": "node build.mjs",
+    "preview": "npm run build && npx serve dist -p 3001 --no-clipboard"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0",
+    "sharp": "^0.34.5"
+  },
+  "optionalDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}

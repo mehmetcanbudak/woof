@@ -1,0 +1,230 @@
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+  color-scheme: light;
+
+  /* Brand colors */
+  --color-bark: #3a322a;
+  --color-bark-dark: #2a231d;
+  --color-cream: #faf8f5;
+  --color-coral: #d4755a;
+  --color-coral-dark: #c4644a;
+
+  /* Secondary accents */
+  --color-sage: #7a9a6a;
+  --color-sage-light: rgba(122, 154, 106, 0.08);
+  --color-honey: #c4a86a;
+  --color-honey-light: rgba(196, 168, 106, 0.1);
+
+  /* State colors */
+  --color-error: #c44;
+  --color-error-dark: #a33;
+  --color-success: #7a9a6a;
+  --color-success-dark: #5a7a4a;
+
+  /* Surface elevation */
+  --color-surface-1: var(--color-warm-50);
+  --color-surface-2: var(--color-warm-100);
+  --color-surface-3: var(--color-warm-200);
+  --color-surface-4: var(--color-warm-300);
+
+  /* Neutral scale (warm grays) */
+  --color-warm-50: #faf8f5;
+  --color-warm-100: #f5f0eb;
+  --color-warm-200: #ede8e2;
+  --color-warm-300: #e8e2db;
+  --color-warm-400: #d4cbc2;
+  --color-warm-500: #c4bbb2;
+  --color-warm-600: #b8afa5;
+  --color-warm-700: #a69d93;
+  --color-warm-800: #9a8e82;
+  --color-warm-900: #7a7268;
+  --color-warm-1000: #5a5249;
+  --color-warm-1100: #3a322a;
+  --color-warm-1200: #2a231d;
+
+  /* Semantic colors */
+  --color-text-primary: var(--color-bark);
+  --color-text-secondary: var(--color-warm-1000);
+  --color-text-muted: var(--color-warm-800);
+  --color-bg-primary: var(--color-warm-50);
+  --color-bg-secondary: var(--color-warm-100);
+  --color-bg-tertiary: var(--color-warm-200);
+  --color-border: var(--color-warm-300);
+  --color-border-light: rgba(0, 0, 0, 0.05);
+
+  /* Overlay surfaces */
+  --color-overlay-bg: rgba(250, 248, 245, 0.95);
+  --color-overlay-solid: rgba(250, 248, 245, 0.98);
+
+  /* Spacing */
+  --space-3xs: 0.15rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.6rem;
+  --space-md: 0.75rem;
+  --space-md2: 1rem;
+  --space-lg: 1.25rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+  --space-3xl: 2.5rem;
+  --space-4xl: 3rem;
+  --space-5xl: 3.5rem;
+  --space-6xl: 4rem;
+
+  /* Typography */
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-accent: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* Font sizes */
+  --text-2xs: 0.65rem;
+  --text-xs: 0.7rem;
+  --text-sm: 0.75rem;
+  --text-md: 0.8rem;
+  --text-lg: 0.85rem;
+  --text-xl: 0.875rem;
+  --text-base: 1rem;
+  --text-body: 1.0625rem;
+  --text-sub: 1.1875rem;
+  --text-title: 1.3125rem;
+  --text-mega: clamp(4rem, 10vw, 8rem);
+
+  /* Line heights */
+  --leading-none: 1;
+  --leading-tight: 1.05;
+  --leading-snug: 1.15;
+  --leading-close: 1.2;
+  --leading-sub: 1.3;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+  --leading-loose: 1.75;
+  --leading-spacious: 1.8;
+  --leading-extra: 1.9;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-slight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.08em;
+  --tracking-wide2: 0.1em;
+  --tracking-wide3: 0.12em;
+  --tracking-widest: 0.15em;
+  --tracking-mega: 0.18em;
+  --tracking-ultra: 0.22em;
+
+  /* Border radius */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+  /* Transitions */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.25s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.35s;
+  --duration-slower: 0.4s;
+  --transition-fast: var(--duration-fast) var(--ease-out);
+  --transition-base: var(--duration-normal) var(--ease-out);
+  --transition-slow: var(--duration-slower) var(--ease-out);
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-padding: clamp(1.5rem, 4vw, 4rem);
+  --section-padding: clamp(3rem, 6vw, 5rem);
+  --scroll-offset: 80px;
+
+  /* Focus */
+  --focus-ring-color: var(--color-bark);
+  --focus-ring-color-on-dark: var(--color-coral);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* Z-index scale */
+  --z-dropdown: 100;
+  --z-progress: 450;
+  --z-sticky: 500;
+  --z-overlay: 900;
+  --z-modal: 999;
+  --z-cursor: 9000;
+  --z-loader: 10000;
+  --z-skip: 11000;
+
+}
+
+/* ============================================
+   DARK THEME — toggled via html.dark class
+   ============================================ */
+html.dark {
+  color-scheme: dark;
+
+  /* Brand colors — kept dark, slightly adjusted */
+  --color-bark: #2e2821;
+  --color-bark-dark: #1a1612;
+  --color-cream: #e8e2db;
+  --color-coral: #e08868;
+  --color-coral-dark: #c4644a;
+
+  /* Neutral scale — dark base */
+  --color-warm-50: #1a1612;
+  --color-warm-100: #1e1a15;
+  --color-warm-200: #232019;
+  --color-warm-300: #2a251e;
+  --color-warm-400: #332d25;
+  --color-warm-500: #4a4139;
+  --color-warm-600: #635a50;
+  --color-warm-700: #7a7268;
+  --color-warm-800: #9a8e82;
+  --color-warm-900: #b8afa5;
+  --color-warm-1000: #d4cbc2;
+  --color-warm-1100: #e0dbd5;
+  --color-warm-1200: #ede8e2;
+
+  /* Semantic — dark surfaces */
+  --color-text-primary: #f0ece7;
+  --color-text-secondary: #dcd6cf;
+  --color-text-muted: #9a8e82;
+  --color-bg-primary: #1a1612;
+  --color-bg-secondary: #1e1a15;
+  --color-bg-tertiary: #232019;
+  --color-border: #332d25;
+  --color-border-light: rgba(255, 255, 255, 0.06);
+
+  /* Overlay surfaces */
+  --color-overlay-bg: rgba(26, 22, 18, 0.97);
+  --color-overlay-solid: rgba(26, 22, 18, 0.98);
+
+  /* Focus */
+  --focus-ring-color: #e08868;
+  --focus-ring-color-on-dark: #d4755a;
+
+  /* Shadows — deeper on dark */
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  /* Surface tokens (dark mode) */
+  --color-surface-1: #1a1612;
+  --color-surface-2: #1e1a15;
+  --color-surface-3: #232019;
+  --color-surface-4: #141110;
+
+  /* Secondary accents (dark) */
+  --color-sage: #8ab07a;
+  --color-sage-light: rgba(138, 176, 122, 0.08);
+  --color-honey: #d4b87a;
+  --color-honey-light: rgba(212, 184, 122, 0.1);
+  --color-error: #e05555;
+  --color-error-dark: #c44;
+  --color-success: #8ab07a;
+  --color-success-dark: #6a905a;
+}

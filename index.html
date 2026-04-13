@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3a322a">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+<script>(function(){var t=localStorage.getItem('theme'),m=document.querySelector('meta[name="theme-color"]');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark');if(m)m.content='#1a1612'}})()</script>
+<title>Woofbox — Williamsburg, Brooklyn</title>
+<meta name="description" content="Woofbox is a stylish neighborhood destination in Williamsburg, Brooklyn combining a coffee bar, curated pet goods, and a grooming studio for small-sized pets.">
+
+<!-- Canonical & Favicon -->
+<link rel="canonical" href="https://woofbox.nyc/">
+<!-- Favicon set -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="msapplication-TileColor" content="#3a322a">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Woofbox — Williamsburg, Brooklyn">
+<meta property="og:description" content="Coffee, curated goods, and a grooming studio — designed for small pets and the humans who adore them.">
+<meta property="og:image" content="https://woofbox.nyc/images/hero.jpg">
+<meta property="og:url" content="https://woofbox.nyc/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Woofbox — Williamsburg, Brooklyn">
+<meta name="twitter:description" content="Coffee, curated goods, and a grooming studio — designed for small pets and the humans who adore them.">
+<meta name="twitter:image" content="https://woofbox.nyc/images/hero.jpg">
+
+<!-- Resource Hints -->
+<link rel="modulepreload" href="js/main.js">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://maps.google.com">
+
+<!-- Fonts (reduced weight variants) -->
+<link href="https://fonts.googleapis.com/css2?family=General+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+
+<!-- Preload hero LCP image (CSS background-image is discovered late) -->
+<link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
+<meta name="robots" content="index, follow">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Woofbox",
+  "description": "A Williamsburg boutique for small pets and their humans. Coffee, curated goods, and a grooming studio — all under one roof.",
+  "image": "https://woofbox.nyc/images/hero.jpg",
+  "url": "https://woofbox.nyc",
+  "telephone": "+17185551234",
+  "email": "hello@woofbox.nyc",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "214 Grand St",
+    "addressLocality": "Brooklyn",
+    "addressRegion": "NY",
+    "postalCode": "11211",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="page-loader" id="pageLoader" aria-hidden="true">
+  <span class="page-loader__letter" aria-hidden="true">W</span>
+</div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- Skip to content -->
+<a href="#main" class="skip-link">Skip to content</a>
+<a href="#booking" class="skip-link">Skip to booking</a>
+<a href="#contact" class="skip-link">Skip to contact</a>
+
+<div id="liveRegion" aria-live="polite" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"></div>
+
+<!-- ============================================
+     NAVBAR
+     ============================================ -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__logo" translate="no">Woofbox</a>
+      <div class="navbar__links">
+        <a href="#about" class="navbar__link">About</a>
+        <a href="#shop" class="navbar__link">Shop</a>
+        <a href="#grooming" class="navbar__link">Grooming</a>
+        <a href="#contact" class="navbar__link">Contact</a>
+      </div>
+      <div class="navbar__actions">
+        <button type="button" class="navbar__theme-toggle" id="themeToggle" aria-label="Switch to dark theme">
+          <svg class="navbar__theme-icon navbar__theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="navbar__theme-icon navbar__theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <button type="button" class="navbar__cta" data-booking-trigger>Book Now</button>
+      </div>
+      <button type="button" class="navbar__mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true" aria-hidden="true">
+  <button type="button" class="mobile-nav__close" id="mobileClose" aria-label="Close menu">Close</button>
+  <a href="#about" class="mobile-nav__link">About</a>
+  <a href="#shop" class="mobile-nav__link">Shop</a>
+  <a href="#grooming" class="mobile-nav__link">Grooming</a>
+  <a href="#contact" class="mobile-nav__link">Contact</a>
+   <a href="#booking" class="mobile-nav__link mobile-nav__link--cta" data-booking-trigger>Book Now</a>
+</div>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero hero-enter" id="hero">
+  <div class="hero__bg">
+    <div class="hero__slide hero__slide--1 hero__slide--active"></div>
+    <div class="hero__slide hero__slide--2"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__inner">
+      <div class="hero__left">
+        <p class="hero__label">Williamsburg, Brooklyn</p>
+        <h1 class="hero__title heading-display"><span translate="no">Woof</span><br>in <em>style</em>.</h1>
+        <p class="hero__subtitle">Coffee, curated goods, and a grooming studio — designed for small pets and the humans who adore them.</p>
+        <div class="hero__actions">
+          <button type="button" class="btn btn--primary" data-booking-trigger>Book Appointment</button>
+          <a href="#about" class="btn btn--outline">Explore the Space</a>
+        </div>
+      </div>
+      <div class="hero__right">
+        <address class="hero__address">
+          214 Grand St<br>
+          Brooklyn, NY 11211
+        </address>
+        <div class="hero__note">
+          Small pets only<br>
+          Pickup by 7:00&nbsp;PM
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+<!-- ============================================
+     ABOUT
+     ============================================ -->
+<section class="about section-padding reveal" id="about">
+  <div class="container">
+    <div class="about__inner">
+      <div class="gallery about__gallery reveal--scale">
+        <div class="gallery__item gallery__item--tall">
+          <img src="assets/wannawoof.webp" width="720" height="900" alt="Storefront — a stylish pet and their human at Woofbox" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery__item">
+          <img src="assets/wooflogocolor.webp" width="360" height="360" alt="Woofbox brand logo in full color" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery__item">
+          <img src="assets/woofshowerafter.webp" width="360" height="450" alt="A freshly groomed small dog looking camera-ready after a Woofbox bath session" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div>
+        <h2 class="heading-section about__heading">A boutique for small<br>pets & their people.</h2>
+        <p class="body-text about__text">
+          Part café, part curated shop, part grooming studio — Woofbox is a neighborhood destination on Grand Street where Williamsburg's most stylish pets and their humans come to linger. Street level, grab a coffee and browse. Downstairs, a calm grooming studio for small pets. All considered.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================
+     GROOMING
+     ============================================ -->
+<section class="grooming section-padding reveal" id="grooming" aria-label="Grooming studio services and pricing">
+  <div class="container">
+    <div class="grooming__inner">
+      <div class="grooming__intro">
+        <p class="label-text grooming__intro-label">Downstairs</p>
+        <h2 class="heading-section grooming__intro-heading">The Grooming Studio</h2>
+        <p class="body-text grooming__intro-text">
+          Below the café, a calm and refined grooming space. No fluorescent lights, no chaos — just skilled hands, gentle products, and a dog who leaves looking like they just walked off a magazine cover.
+        </p>
+        <button type="button" class="btn btn--coral" data-booking-trigger>Book a Session</button>
+        <div class="grooming__notes">
+          <div class="grooming__note">
+            <span class="grooming__note-icon" aria-hidden="true"></span>
+            Grooming services available for small-sized pets only
+          </div>
+          <div class="grooming__note">
+            <span class="grooming__note-icon" aria-hidden="true"></span>
+            Latest pickup time: 7:00&nbsp;PM
+          </div>
+        </div>
+      </div>
+      <div class="grooming__services">
+        <p class="label-text grooming__services-label">Services & Pricing</p>
+        <div class="menu-row" data-hover-img="bath-brush">
+          <span class="menu-row__name">Bath & Brush</span>
+          <span class="menu-row__price">from $45</span>
+        </div>
+        <div class="menu-row" data-hover-img="full-groom">
+          <span class="menu-row__name">Full Groom</span>
+          <span class="menu-row__price">from $75</span>
+        </div>
+        <div class="menu-row" data-hover-img="nail-trim">
+          <span class="menu-row__name">Nail Trim</span>
+          <span class="menu-row__price">$20</span>
+        </div>
+        <div class="menu-row" data-hover-img="ear-cleaning">
+          <span class="menu-row__name">Ear Cleaning</span>
+          <span class="menu-row__price">$15</span>
+        </div>
+        <div class="menu-row" data-hover-img="teeth-brushing">
+          <span class="menu-row__name">Teeth Brushing</span>
+          <span class="menu-row__price">$12</span>
+        </div>
+        <div class="menu-row" data-hover-img="puppy-intro">
+          <span class="menu-row__name">Puppy Intro Groom</span>
+          <span class="menu-row__price">from $40</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     COFFEE + MERCH
+     ============================================ -->
+<section class="shop section-padding reveal" id="shop" aria-label="Coffee, pastries, and curated goods">
+  <div class="container">
+    <div class="shop__header">
+      <p class="label-text shop__header-label">Street Level</p>
+      <h2 class="heading-section shop__header-heading">The Woofbox Experience</h2>
+      <p class="body-text shop__header-text">The front of house. Grab a latte, browse the racks, pick up something beautiful for your four-legged companion.</p>
+    </div>
+    <div class="shop__grid">
+      <!-- Coffee Bar -->
+      <div class="shop__column reveal-delay-1">
+        <h3 class="heading-sub shop__column-heading">Coffee & Pastries</h3>
+        <p class="shop__column-sub">Carefully sourced, thoughtfully prepared.</p>
+        <div class="shop__items">
+          <div class="menu-row" data-hover-img="espresso">
+            <span class="menu-row__name">Espresso</span>
+            <span class="menu-row__price">$4</span>
+          </div>
+          <div class="menu-row" data-hover-img="americano">
+            <span class="menu-row__name">Americano</span>
+            <span class="menu-row__price">$4</span>
+          </div>
+          <div class="menu-row" data-hover-img="cappuccino">
+            <span class="menu-row__name">Cappuccino</span>
+            <span class="menu-row__price">$5</span>
+          </div>
+          <div class="menu-row" data-hover-img="latte">
+            <span class="menu-row__name">Latte</span>
+            <span class="menu-row__price">$6</span>
+          </div>
+          <div class="menu-row" data-hover-img="matcha">
+            <span class="menu-row__name">Matcha Latte</span>
+            <span class="menu-row__price">$6</span>
+          </div>
+          <div class="menu-row" data-hover-img="iced-coffee">
+            <span class="menu-row__name">Iced Coffee</span>
+            <span class="menu-row__price">$5</span>
+          </div>
+          <div class="menu-row" data-hover-img="croissant">
+            <span class="menu-row__name">Croissant</span>
+            <span class="menu-row__price">$5</span>
+          </div>
+          <div class="menu-row" data-hover-img="banana-bread">
+            <span class="menu-row__name">Banana Bread</span>
+            <span class="menu-row__price">$5</span>
+          </div>
+        </div>
+        <div class="shop__featured">
+          <p class="shop__featured-text">Puppuccino — $3<br><span class="shop__featured-sub">A little whipped cream moment. Because they deserve it.</span></p>
+        </div>
+      </div>
+      <!-- Merch Bento -->
+      <div class="shop__column reveal-delay-2">
+        <h3 class="heading-sub shop__column-heading">Curated Goods</h3>
+        <p class="shop__column-sub">Pet essentials, designed with taste.</p>
+        <div class="merch-bento">
+          <div class="merch-bento__item merch-bento__item--tall reveal--scale reveal-delay-1">
+            <picture><source type="image/webp" srcset="assets/tote-bag.webp"><img src="assets/tote-bag.jpg" width="400" height="400" alt="Woofbox Tote Bag" loading="lazy" decoding="async"></picture>
+            <div class="merch-bento__overlay"></div>
+            <div class="merch-bento__info">
+              <p class="merch-bento__name">Woofbox Tote Bag</p>
+              <p class="merch-bento__price">$22</p>
+            </div>
+          </div>
+          <div class="merch-bento__item reveal--scale reveal-delay-1">
+            <picture><source type="image/webp" srcset="assets/bandana.webp"><img src="assets/bandana.jpg" width="400" height="400" alt="Dog Bandana" loading="lazy" decoding="async"></picture>
+            <div class="merch-bento__overlay"></div>
+            <div class="merch-bento__info">
+              <p class="merch-bento__name">Dog Bandana</p>
+              <p class="merch-bento__price">$16</p>
+            </div>
+          </div>
+          <div class="merch-bento__item reveal--scale reveal-delay-2">
+            <picture><source type="image/webp" srcset="assets/mug.webp"><img src="assets/mug.jpg" width="400" height="400" alt="Ceramic Dog Mug" loading="lazy" decoding="async"></picture>
+            <div class="merch-bento__overlay"></div>
+            <div class="merch-bento__info">
+              <p class="merch-bento__name">Ceramic Dog Mug</p>
+              <p class="merch-bento__price">$18</p>
+            </div>
+          </div>
+          <div class="merch-bento__item merch-bento__item--wide reveal--scale reveal-delay-2">
+            <picture><source type="image/webp" srcset="assets/leash.webp"><img src="assets/leash.jpg" width="400" height="400" alt="Branded Leash" loading="lazy" decoding="async"></picture>
+            <div class="merch-bento__overlay"></div>
+            <div class="merch-bento__info">
+              <p class="merch-bento__name">Branded Leash</p>
+              <p class="merch-bento__price">$28</p>
+            </div>
+          </div>
+          <div class="merch-bento__item reveal--scale reveal-delay-3">
+            <picture><source type="image/webp" srcset="assets/treat-jar.webp"><img src="assets/treat-jar.jpg" width="400" height="400" alt="Mini Treat Jar" loading="lazy" decoding="async"></picture>
+            <div class="merch-bento__overlay"></div>
+            <div class="merch-bento__info">
+              <p class="merch-bento__name">Mini Treat Jar</p>
+              <p class="merch-bento__price">$14</p>
+            </div>
+          </div>
+          <div class="merch-bento__item reveal--scale reveal-delay-3">
+            <picture><source type="image/webp" srcset="assets/hoodie.webp"><img src="assets/hoodie.jpg" width="400" height="400" alt="Woofbox Hoodie" loading="lazy" decoding="async"></picture>
+            <div class="merch-bento__overlay"></div>
+            <div class="merch-bento__info">
+              <p class="merch-bento__name">Woofbox Hoodie</p>
+              <p class="merch-bento__price">$48</p>
+            </div>
+          </div>
+          <div class="merch-bento__item reveal--scale reveal-delay-3">
+            <picture><source type="image/webp" srcset="assets/dog-toy.webp"><img src="assets/dog-toy.jpg" width="400" height="400" alt="Plush Dog Toy" loading="lazy" decoding="async"></picture>
+            <div class="merch-bento__overlay"></div>
+            <div class="merch-bento__info">
+              <p class="merch-bento__name">Plush Dog Toy</p>
+              <p class="merch-bento__price">$12</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     BOOKING
+     ============================================ -->
+<section class="booking reveal" id="booking">
+  <div class="booking__particles" aria-hidden="true">
+    <div class="booking__particle"></div>
+    <div class="booking__particle"></div>
+    <div class="booking__particle"></div>
+    <div class="booking__particle"></div>
+  </div>
+  <div class="container">
+    <div class="booking__inner">
+      <h2 class="heading-section booking__heading"><em>Woof</em> needs Grooming?</h2>
+      <p class="body-text booking__text">A calm, personal experience for your small pet. No automated queues, no rush — just skilled hands and gentle products.</p>
+      <div class="booking__badges">
+        <span class="note-badge">Small pets only</span>
+        <span class="note-badge">Pickup by 7&nbsp;PM</span>
+      </div>
+      <button type="button" class="btn btn--coral" id="openBooking">Book an Appointment</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTACT + MAP
+     ============================================ -->
+<section class="contact reveal" id="contact" aria-label="Contact information and map">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="contact__info">
+        <h2 class="heading-section contact__info-heading">Come say <em>woof</em>.</h2>
+        <div class="contact__details">
+          <div class="contact__detail">
+            <p class="contact__detail-label">Address</p>
+            <p class="contact__detail-text">214 Grand St, Brooklyn, NY 11211</p>
+          </div>
+          <div class="contact__detail">
+            <p class="contact__detail-label">Hours</p>
+            <p class="contact__detail-text">Mon – Fri <time datetime="Mo-Fr 08:00-19:00">8&nbsp;AM – 7&nbsp;PM</time><br>Sat – Sun <time datetime="Sa-Su 09:00-18:00">9&nbsp;AM – 6&nbsp;PM</time></p>
+          </div>
+          <div class="contact__detail">
+            <p class="contact__detail-label">Email</p>
+            <p class="contact__detail-text"><a href="mailto:hello@woofbox.nyc">hello@woofbox.nyc</a></p>
+          </div>
+          <div class="contact__detail">
+            <p class="contact__detail-label">Phone</p>
+            <p class="contact__detail-text"><a href="tel:+17185551234">(718) 555-1234</a></p>
+          </div>
+          <div class="contact__detail contact__detail--full">
+            <p class="contact__detail-text contact__detail-disclaimer">Grooming for small-sized pets only · Latest pickup 7:00&nbsp;PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact__map" id="contactMap">
+        <button type="button" class="contact__map-placeholder" id="mapPlaceholder" aria-label="Load Google Maps">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>214 Grand St, Brooklyn</span>
+          <span class="contact__map-hint">Click or scroll to load map</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Booking Modal -->
+<div class="booking-modal" id="bookingModal" role="dialog" aria-label="Book a grooming appointment" aria-modal="true" aria-hidden="true">
+  <div class="booking-modal__panel">
+    <button type="button" class="booking-modal__close" id="closeBooking" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 class="booking-modal__heading">Book a Grooming Session</h3>
+    <form id="bookingForm" novalidate>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="ownerName">Owner Name</label>
+          <input type="text" id="ownerName" name="ownerName" autocomplete="name" placeholder="Your full name…" required aria-describedby="error-ownerName">
+          <span class="form-field__error" id="error-ownerName">Please enter your name</span>
+        </div>
+        <div class="form-field">
+          <label for="petName">Pet Name</label>
+          <input type="text" id="petName" name="petName" autocomplete="off" placeholder="Your pet's name…" required aria-describedby="error-petName">
+          <span class="form-field__error" id="error-petName">Please enter your pet's name</span>
+        </div>
+        <div class="form-field">
+          <label for="petType">Pet Type</label>
+          <select id="petType" name="petType" autocomplete="off" required aria-describedby="error-petType">
+            <option value="" disabled selected>Select</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="form-field__error" id="error-petType">Please select a pet type</span>
+        </div>
+        <div class="form-field">
+          <label for="breed">Breed</label>
+          <input type="text" id="breed" name="breed" autocomplete="off" placeholder="e.g. French Bulldog…">
+        </div>
+        <div class="form-field">
+          <label for="service">Requested Service</label>
+          <select id="service" name="service" autocomplete="off" required aria-describedby="error-service">
+            <option value="" disabled selected>Select a service</option>
+            <option value="bath-brush">Bath &amp; Brush — from $45</option>
+            <option value="full-groom">Full Groom — from $75</option>
+            <option value="nail-trim">Nail Trim — $20</option>
+            <option value="ear-cleaning">Ear Cleaning — $15</option>
+            <option value="teeth-brushing">Teeth Brushing — $12</option>
+            <option value="puppy-intro">Puppy Intro Groom — from $40</option>
+          </select>
+          <span class="form-field__error" id="error-service">Please select a service</span>
+        </div>
+        <div class="form-field">
+          <label for="prefDate">Preferred Date</label>
+          <input type="date" id="prefDate" name="preferredDate" autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label for="prefTime">Preferred Time</label>
+          <input type="time" id="prefTime" name="preferredTime" autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(xxx) xxx-xxxx…" required aria-describedby="error-phone">
+          <span class="form-field__error" id="error-phone">Please enter your phone number</span>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com…" spellcheck="false" required aria-describedby="error-email">
+          <span class="form-field__error" id="error-email">Please enter a valid email</span>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" autocomplete="off" placeholder="Anything we should know about your pet?…" maxlength="500"></textarea>
+        </div>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn--coral" id="submitBtn">Request Appointment</button>
+        <p class="form-note">We'll confirm by email or text. Grooming is for small-sized pets only.</p>
+      </div>
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <p class="form-success__text">Thank you! We've received your request and will confirm shortly.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand-name" translate="no">Woofbox</p>
+        <p class="footer__brand-text">A Williamsburg boutique for small pets and their humans. Coffee, curated goods, and a grooming studio — all under one roof.</p>
+      </div>
+      <div>
+        <p class="footer__heading">Navigate</p>
+        <div class="footer__links">
+          <a href="#about" class="footer__link">About</a>
+          <a href="#shop" class="footer__link">Coffee & Shop</a>
+          <a href="#grooming" class="footer__link">Grooming</a>
+          <a href="#booking" class="footer__link" data-booking-trigger>Book Now</a>
+          <a href="#contact" class="footer__link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Visit</p>
+        <div class="footer__links">
+          <a href="https://www.google.com/maps/search/?api=1&query=214+Grand+St+Brooklyn+NY+11211" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--address">214 Grand St<br>Brooklyn, NY 11211</a>
+          <a href="mailto:hello@woofbox.nyc" class="footer__link">hello@woofbox.nyc</a>
+          <a href="tel:+17185551234" class="footer__link">(718) 555-1234</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Follow</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/woofbox/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <button type="button" class="footer__social-link" aria-label="TikTok (coming soon)" disabled>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.17v-3.44a4.85 4.85 0 01-3.59-1.37V6.69h3.59z"/></svg>
+          </button>
+          <a href="https://www.youtube.com/@woofbox" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.27V8.73L15.82 12l-6.07 3.27z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Woofbox. All rights reserved.</p>
+      <div class="footer__bottom-links">
+          <span class="footer__bottom-link" aria-disabled="true">Privacy</span>
+          <span class="footer__bottom-link" aria-disabled="true">Terms</span>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cursor hover image -->
+<div class="cursor-img" id="cursorImg" aria-hidden="true">
+  <div class="cursor-img__inner" id="cursorImgLabel"></div>
+</div>
+
+<!-- App -->
+<script type="module" src="js/main.js"></script>
+
+<!-- Mobile sticky CTA -->
+<a href="#booking" class="mobile-cta-bar" data-booking-trigger aria-label="Book a grooming appointment">
+  Book Appointment
+</a>
+
+</body>
+</html>
+
