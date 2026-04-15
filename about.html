@@ -92,9 +92,7 @@
 <section class="about-hero">
   <div class="about-hero__bg"></div>
   <div class="container">
-    <div class="about-hero__inner">
-      <h1 class="heading-display about-hero__title">A boutique for small<br>pets & their people.</h1>
-    </div>
+    <h1 class="heading-display about-hero__title">A boutique for small<br>pets & their people.</h1>
   </div>
 </section>
 
@@ -144,12 +142,27 @@
         <span class="note-badge">Small pets only</span>
         <span class="note-badge">Pickup 2 hours after appointment</span>
       </div>
-      <button type="button" class="btn btn--coral" id="openBooking">Book an Appointment</button>
+      <button type="button" class="btn btn--coral" data-booking-trigger>Book an Appointment</button>
     </div>
   </div>
 </section>
 
 </main>
+
+<!-- Booking Modal -->
+<div class="booking-modal" id="bookingModal" role="dialog" aria-label="Coming soon" aria-modal="true" aria-hidden="true">
+  <div class="booking-modal__panel">
+    <button type="button" class="booking-modal__close" id="closeBooking" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="coming-soon">
+      <p class="coming-soon__label">Coming Soon</p>
+      <h3 class="coming-soon__heading">Online Booking</h3>
+      <p class="coming-soon__text">We're working on it. Call us to book your appointment.</p>
+      <a href="tel:+17185551234" class="btn btn--coral">(718) 555-1234</a>
+    </div>
+  </div>
+</div>
 
 <!-- ============================================
      FOOTER

@@ -6,7 +6,6 @@ import { isActive as modalActive, closeModal } from './modal.js';
 
 import './navbar.js';
 import './modal.js';
-import './form.js';
 import './cursor-hover.js';
 import './smooth-scroll.js';
 import './scroll-reveal.js';

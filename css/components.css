@@ -82,21 +82,6 @@
     transform 0.15s var(--ease-out);
 }
 
-.btn .spinner {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(250, 248, 245, 0.3);
-  border-top-color: var(--color-cream);
-  border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-  margin-right: 0.5rem;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 /* ============================================
    NOTE BADGE
    ============================================ */
@@ -404,14 +389,6 @@
   height: 18px;
 }
 
-.booking-modal__heading {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-3xl);
-}
-
 .coming-soon {
   text-align: center;
   padding: var(--space-2xl) 0;
@@ -442,170 +419,6 @@
   max-width: 320px;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* Form fields */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md2) 1.25rem;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2xs);
-}
-
-.form-field--full {
-  grid-column: 1 / -1;
-}
-
-.form-field label {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wide2);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: var(--text-xl);
-  color: var(--color-text-primary);
-  padding: 0.55rem 0;
-  border-bottom: 1px solid var(--color-warm-400);
-  background: transparent;
-  transition: border-color var(--transition-base);
-  width: 100%;
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-  color: var(--color-warm-500);
-}
-
-.form-field input:hover,
-.form-field select:hover,
-.form-field textarea:hover {
-  border-color: var(--color-warm-500);
-}
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-  border-color: var(--color-bark);
-}
-
-/* Validation states */
-.form-field--error input,
-.form-field--error select,
-.form-field--error textarea {
-  border-color: var(--color-error);
-}
-
-.form-field--error {
-  animation: shake 0.3s var(--ease-out);
-}
-
-.form-field__error {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: var(--text-2xs);
-  color: var(--color-error);
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.form-field--error .form-field__error {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin: 0.25rem 0 0;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-
-.form-field select {
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239a8e82'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0 center;
-  padding-right: var(--space-md2);
-}
-
-.form-field textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-
-.form-submit {
-  margin-top: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-md2);
-}
-
-.form-note {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 0.68rem;
-  color: var(--color-text-muted);
-  max-width: 240px;
-  line-height: 1.55;
-}
-
-.form-success {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  margin-top: var(--space-md2);
-  padding: var(--space-md) var(--space-md2);
-  background: rgba(120, 160, 120, 0.08);
-  border-left: 2px solid var(--color-success);
-}
-
-.form-success--visible {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  clip: auto;
-}
-
-.form-success__text {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: var(--text-xl);
-  color: var(--color-text-primary);
-  line-height: 1.5;
-}
-
-.booking-modal--sent .form-grid,
-.booking-modal--sent .form-submit {
-  display: none;
 }
 
 /* ============================================
@@ -736,11 +549,6 @@ html.dark .btn--coral:hover {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
-html.dark .btn .spinner {
-  border-color: rgba(255, 255, 255, 0.2);
-  border-top-color: var(--color-warm-50);
-}
-
 /* Note badges */
 html.dark .note-badge {
   background: rgba(224, 136, 104, 0.1);
@@ -789,52 +597,6 @@ html.dark .booking-modal__panel {
 
 html.dark .booking-modal__close:hover {
   color: var(--color-warm-1200);
-}
-
-/* Form fields */
-html.dark .form-field input,
-html.dark .form-field select,
-html.dark .form-field textarea {
-  color: var(--color-warm-1200);
-  border-bottom-color: var(--color-warm-500);
-}
-
-html.dark .form-field input::placeholder,
-html.dark .form-field textarea::placeholder {
-  color: var(--color-warm-600);
-}
-
-html.dark .form-field input:hover,
-html.dark .form-field select:hover,
-html.dark .form-field textarea:hover {
-  border-bottom-color: var(--color-warm-600);
-}
-
-html.dark .form-field input:focus,
-html.dark .form-field select:focus,
-html.dark .form-field textarea:focus {
-  border-bottom-color: var(--color-coral);
-}
-
-html.dark .form-field select {
-  background-color: var(--color-surface-2);
-  color: var(--color-warm-1200);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239a8e82'/%3E%3C/svg%3E");
-}
-
-html.dark .form-success {
-  background: rgba(120, 160, 120, 0.06);
-  border-left-color: var(--color-success);
-}
-
-html.dark .form-field--error input,
-html.dark .form-field--error select,
-html.dark .form-field--error textarea {
-  border-color: var(--color-error);
-}
-
-html.dark .form-field__error {
-  color: var(--color-error);
 }
 
 html.dark .booking__particle {

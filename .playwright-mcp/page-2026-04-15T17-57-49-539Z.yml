@@ -1,0 +1,242 @@
+- generic [active] [ref=e1]:
+  - img [ref=e3]
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#main"
+  - link "Skip to booking" [ref=e5] [cursor=pointer]:
+    - /url: "#booking"
+  - link "Skip to contact" [ref=e6] [cursor=pointer]:
+    - /url: "#contact"
+  - navigation "Main navigation" [ref=e8]:
+    - generic [ref=e10]:
+      - link "Woofbox Logo" [ref=e11] [cursor=pointer]:
+        - /url: "#"
+        - img "Woofbox Logo" [ref=e12]
+      - generic [ref=e13]:
+        - link "About" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+        - link "Shop" [ref=e15] [cursor=pointer]:
+          - /url: "#shop"
+        - link "Grooming" [ref=e16] [cursor=pointer]:
+          - /url: "#grooming"
+        - link "Contact" [ref=e17] [cursor=pointer]:
+          - /url: "#contact"
+      - button "Book Now" [ref=e19] [cursor=pointer]
+  - generic [ref=e20]:
+    - text: W
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: Williamsburg, Brooklyn
+        - heading "Woof in style." [level=1] [ref=e27]:
+          - text: Woof
+          - text: in
+          - emphasis [ref=e28]: style
+          - text: .
+        - paragraph [ref=e29]: Coffee, curated goods, and a grooming studio.
+      - generic [ref=e30]:
+        - generic [ref=e32]:
+          - button "Book Appointment" [ref=e33] [cursor=pointer]
+          - link "Explore the Space" [ref=e34] [cursor=pointer]:
+            - /url: about.html
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - text: 214 Grand St
+            - text: Brooklyn, NY 11211
+          - generic [ref=e37]:
+            - text: Small pets only
+            - text: Pickup 2 hours after appointment
+  - main [ref=e38]:
+    - region "Coffee, pastries, and curated goods" [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: Street Level
+          - heading "The Woofbox Experience" [level=2] [ref=e43]
+          - paragraph [ref=e44]: The front of house. Grab a latte, browse the racks, pick up something beautiful for your four-legged companion.
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - heading "Coffee & Pastries" [level=3] [ref=e47]
+            - paragraph [ref=e48]: Carefully sourced, thoughtfully prepared.
+            - paragraph [ref=e49]: Coffee
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: Espresso
+                - generic [ref=e53]: $4
+              - generic [ref=e54]:
+                - generic [ref=e55]: Americano
+                - generic [ref=e56]: $4
+              - generic [ref=e57]:
+                - generic [ref=e58]: Cappuccino
+                - generic [ref=e59]: $5
+              - generic [ref=e60]:
+                - generic [ref=e61]: Latte
+                - generic [ref=e62]: $6
+            - paragraph [ref=e63]: Iced Coffee
+            - generic [ref=e64]:
+              - generic [ref=e65]:
+                - generic [ref=e66]: Iced Coffee
+                - generic [ref=e67]: $5
+              - generic [ref=e68]:
+                - generic [ref=e69]: Iced Latte
+                - generic [ref=e70]: $6
+              - generic [ref=e71]:
+                - generic [ref=e72]: Cold Brew
+                - generic [ref=e73]: $5
+            - paragraph [ref=e74]: Specials
+            - generic [ref=e75]:
+              - generic [ref=e76]:
+                - generic [ref=e77]: Matcha Latte
+                - generic [ref=e78]: $6
+              - generic [ref=e79]:
+                - generic [ref=e80]: Croissant
+                - generic [ref=e81]: $5
+              - generic [ref=e82]:
+                - generic [ref=e83]: Banana Bread
+                - generic [ref=e84]: $5
+          - generic [ref=e85]:
+            - heading "Curated Goods" [level=3] [ref=e86]
+            - paragraph [ref=e87]: Pet essentials, designed with taste.
+            - generic [ref=e88]:
+              - generic [ref=e89] [cursor=pointer]:
+                - img "Woofbox Tote Bag" [ref=e91]
+                - generic [ref=e93]:
+                  - paragraph [ref=e94]: Woofbox Tote Bag
+                  - paragraph [ref=e95]: $22
+              - generic [ref=e96] [cursor=pointer]:
+                - img "Dog Bandana" [ref=e98]
+                - generic [ref=e100]:
+                  - paragraph [ref=e101]: Dog Bandana
+                  - paragraph [ref=e102]: $16
+              - generic [ref=e103] [cursor=pointer]:
+                - img "Ceramic Dog Mug" [ref=e105]
+                - generic [ref=e107]:
+                  - paragraph [ref=e108]: Ceramic Dog Mug
+                  - paragraph [ref=e109]: $18
+              - generic [ref=e110] [cursor=pointer]:
+                - img "Branded Leash" [ref=e112]
+                - generic [ref=e114]:
+                  - paragraph [ref=e115]: Branded Leash
+                  - paragraph [ref=e116]: $28
+              - generic [ref=e117] [cursor=pointer]:
+                - img "Mini Treat Jar" [ref=e119]
+                - generic [ref=e121]:
+                  - paragraph [ref=e122]: Mini Treat Jar
+                  - paragraph [ref=e123]: $14
+              - generic [ref=e124] [cursor=pointer]:
+                - img "Woofbox Hoodie" [ref=e126]
+                - generic [ref=e128]:
+                  - paragraph [ref=e129]: Woofbox Hoodie
+                  - paragraph [ref=e130]: $48
+              - generic [ref=e131] [cursor=pointer]:
+                - img "Plush Dog Toy" [ref=e133]
+                - generic [ref=e135]:
+                  - paragraph [ref=e136]: Plush Dog Toy
+                  - paragraph [ref=e137]: $12
+    - region "Grooming studio services and pricing" [ref=e138]:
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - paragraph [ref=e142]: Downstairs
+          - heading "The Grooming Studio" [level=2] [ref=e143]
+          - paragraph [ref=e144]: Below the café, a calm and refined grooming space. No fluorescent lights, no chaos — just skilled hands, gentle products, and a dog who leaves looking like they just walked off a magazine cover.
+          - button "Book a Session" [ref=e145] [cursor=pointer]
+          - generic [ref=e146]:
+            - generic [ref=e147]: Grooming services available for small-sized pets only
+            - generic [ref=e149]: Pets must be picked up 2 hours after appointment time
+        - generic [ref=e151]:
+          - paragraph [ref=e152]: Services & Pricing
+          - button "Bath and Brush, from $45" [ref=e153]:
+            - generic [ref=e154]: Bath & Brush
+            - generic [ref=e155]: from $45
+          - button "Full Groom, from $75" [ref=e156]:
+            - generic [ref=e157]: Full Groom
+            - generic [ref=e158]: from $75
+          - button "Nail Trim, $20" [ref=e159]:
+            - generic [ref=e160]: Nail Trim
+            - generic [ref=e161]: $20
+          - button "Ear Cleaning, $15" [ref=e162]:
+            - generic [ref=e163]: Ear Cleaning
+            - generic [ref=e164]: $15
+          - button "Teeth Brushing, $12" [ref=e165]:
+            - generic [ref=e166]: Teeth Brushing
+            - generic [ref=e167]: $12
+          - button "Puppy Intro Groom, from $40" [ref=e168]:
+            - generic [ref=e169]: Puppy Intro Groom
+            - generic [ref=e170]: from $40
+    - region "Contact information and map" [ref=e171]:
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - heading "Come say woof." [level=2] [ref=e175]:
+            - text: Come say
+            - emphasis [ref=e176]: woof
+            - text: .
+          - generic [ref=e177]:
+            - generic [ref=e178]:
+              - paragraph [ref=e179]: Address
+              - paragraph [ref=e180]: 214 Grand St, Brooklyn, NY 11211
+            - generic [ref=e181]:
+              - paragraph [ref=e182]: Hours
+              - paragraph [ref=e183]:
+                - text: Mon – Fri
+                - time [ref=e184]: 8 AM – 7 PM
+                - text: Sat – Sun
+                - time [ref=e185]: 9 AM – 6 PM
+            - generic [ref=e186]:
+              - paragraph [ref=e187]: Email
+              - paragraph [ref=e188]:
+                - link "hello@woofbox.nyc" [ref=e189] [cursor=pointer]:
+                  - /url: mailto:hello@woofbox.nyc
+            - generic [ref=e190]:
+              - paragraph [ref=e191]: Phone
+              - paragraph [ref=e192]:
+                - link "(718) 555-1234" [ref=e193] [cursor=pointer]:
+                  - /url: tel:+17185551234
+            - paragraph [ref=e195]: Grooming for small-sized pets only · Pets must be picked up 2 hours after appointment time
+        - button "Load Google Maps" [ref=e197] [cursor=pointer]:
+          - img [ref=e198]
+          - generic [ref=e201]: 214 Grand St, Brooklyn
+          - generic [ref=e202]: Click or scroll to load map
+  - contentinfo [ref=e203]:
+    - generic [ref=e204]:
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - paragraph [ref=e207]:
+            - img "Woofbox Logo" [ref=e208]
+          - paragraph [ref=e209]: A Williamsburg boutique for small pets and their humans. Coffee, curated goods, and a grooming studio — all under one roof.
+        - generic [ref=e210]:
+          - paragraph [ref=e211]: Navigate
+          - generic [ref=e212]:
+            - link "About" [ref=e213] [cursor=pointer]:
+              - /url: about.html
+            - link "Coffee & Shop" [ref=e214] [cursor=pointer]:
+              - /url: "#shop"
+            - link "Grooming" [ref=e215] [cursor=pointer]:
+              - /url: "#grooming"
+            - link "Book Now" [ref=e216] [cursor=pointer]:
+              - /url: "#booking"
+            - link "Contact" [ref=e217] [cursor=pointer]:
+              - /url: "#contact"
+        - generic [ref=e218]:
+          - paragraph [ref=e219]: Visit
+          - generic [ref=e220]:
+            - link "214 Grand St Brooklyn, NY 11211" [ref=e221] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=214+Grand+St+Brooklyn+NY+11211
+              - text: 214 Grand St
+              - text: Brooklyn, NY 11211
+            - link "hello@woofbox.nyc" [ref=e222] [cursor=pointer]:
+              - /url: mailto:hello@woofbox.nyc
+            - link "(718) 555-1234" [ref=e223] [cursor=pointer]:
+              - /url: tel:+17185551234
+        - generic [ref=e224]:
+          - paragraph [ref=e225]: Follow
+          - generic [ref=e226]:
+            - link "Instagram" [ref=e227] [cursor=pointer]:
+              - /url: https://www.instagram.com/woofbox/
+              - img [ref=e228]
+            - button "TikTok (coming soon)" [disabled] [ref=e232]:
+              - img [ref=e233]
+            - link "YouTube" [ref=e235] [cursor=pointer]:
+              - /url: https://www.youtube.com/@woofbox
+              - img [ref=e236]
+      - generic [ref=e238]:
+        - paragraph [ref=e239]: © 2026 Woofbox. All rights reserved.
+        - generic [ref=e240]:
+          - generic [ref=e241]: Privacy
+          - generic [ref=e242]: Terms

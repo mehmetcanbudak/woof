@@ -127,58 +127,10 @@
   background: var(--color-bark-dark);
 }
 
-/* Theme toggle */
-.navbar__theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  padding: 0;
-  color: rgba(250, 248, 245, 0.7);
-  transition: color var(--transition-base);
-}
-
 .navbar__actions {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-}
-
-.navbar__theme-toggle:hover {
-  color: var(--color-cream);
-}
-
-.navbar--scrolled .navbar__theme-toggle {
-  color: var(--color-warm-700);
-}
-
-.navbar--scrolled .navbar__theme-toggle:hover {
-  color: var(--color-bark);
-}
-
-.navbar__theme-toggle svg {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.4s var(--ease-out);
-}
-
-/* Show sun in dark mode, moon in light mode */
-.navbar__theme-icon--moon {
-  display: block;
-}
-
-.navbar__theme-icon--sun {
-  display: none;
-}
-
-html.dark .navbar__theme-icon--moon {
-  display: none;
-}
-
-html.dark .navbar__theme-icon--sun {
-  display: block;
 }
 
 /* Mobile toggle (hamburger → X animation) */
@@ -327,14 +279,6 @@ html.dark .navbar__theme-icon--sun {
   display: inline-block;
 }
 
-.hero__left {
-  flex: 1;
-  max-width: 620px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
 .hero__label {
   font-family: var(--font-sans);
   font-weight: 500;
@@ -374,11 +318,6 @@ html.dark .navbar__theme-icon--sun {
   align-items: center;
   gap: var(--space-md2);
   flex-wrap: wrap;
-}
-
-.hero__right {
-  flex-shrink: 0;
-  padding-bottom: calc(var(--section-padding) + env(safe-area-inset-bottom, 0px));
 }
 
 .hero__address {
@@ -437,10 +376,6 @@ html.dark .navbar__theme-icon--sun {
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
   position: relative;
-}
-
-.about__heading {
-  margin-bottom: var(--space-3xl);
 }
 
 .about__text {
@@ -557,27 +492,6 @@ html.dark .navbar__theme-icon--sun {
 .shop__items {
   display: flex;
   flex-direction: column;
-}
-
-.shop__featured {
-  margin-top: 2rem;
-  padding: var(--space-3xl);
-  background: var(--color-sage-light);
-  border-left: none;
-  position: relative;
-}
-
-.shop__featured-text {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: var(--text-body);
-  color: var(--color-text-primary);
-  line-height: 1.6;
-}
-
-.shop__featured-sub {
-  font-size: var(--text-lg);
-  color: var(--color-warm-800);
 }
 
 /* ============================================
@@ -1087,10 +1001,6 @@ html.dark .navbar__theme-icon--sun {
   z-index: 0;
 }
 
-.shop__featured {
-  display: none;
-}
-
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -1137,14 +1047,6 @@ html.dark .navbar__theme-icon--sun {
     display: flex;
   }
 
-  .navbar__theme-toggle {
-    color: rgba(250, 248, 245, 0.7);
-  }
-
-  .navbar--scrolled .navbar__theme-toggle {
-    color: var(--color-warm-700);
-  }
-
   .shop__grid {
     grid-template-columns: 1fr;
   }
@@ -1155,10 +1057,6 @@ html.dark .navbar__theme-icon--sun {
 
   .merch-bento__item--wide {
     grid-column: span 1;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
   }
 
   .footer__bottom {
@@ -1176,50 +1074,20 @@ html.dark .navbar__theme-icon--sun {
     text-align: center;
   }
 
-  .hero__right {
-    text-align: left;
-  }
-
   .merch-bento__item--tall {
     grid-column: span 2;
   }
 
-  .mobile-cta-bar {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: var(--z-sticky);
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    background: var(--color-coral);
-    color: var(--color-cream);
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: var(--text-sm);
-    letter-spacing: var(--tracking-wide3);
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .mobile-cta-bar:hover {
-    background: var(--color-coral-dark);
-  }
-
-  main {
-    padding-bottom: 60px;
-  }
-
-  .footer {
-    padding-bottom: 4.5rem;
-  }
-
   .grooming__services {
     transform: translateX(0);
+  }
+
+  .hero__bottom-row {
+    justify-content: flex-start;
+  }
+
+  .hero__address-block {
+    display: none;
   }
 }
 
@@ -1252,11 +1120,11 @@ html.dark .navbar__theme-icon--sun {
   }
 
   .hero__bottom-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-lg);
     width: 100%;
-    align-items: start;
+    align-items: stretch;
   }
 
   .hero__buttons-block {
@@ -1277,25 +1145,6 @@ html.dark .navbar__theme-icon--sun {
     justify-content: center;
     padding: var(--space-sm) var(--space-md);
     font-size: var(--text-xs);
-  }
-
-  .hero__address-block {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    background: transparent;
-    backdrop-filter: none;
-    text-align: left;
-  }
-
-  .hero__address {
-    font-size: var(--text-sm);
-    line-height: 1.4;
-  }
-
-  .hero__note {
-    font-size: var(--text-2xs);
-    line-height: 1.4;
   }
 
   .hero {
@@ -1388,7 +1237,6 @@ html.dark .grooming {
 
 html.dark .grooming__services {
   background: var(--color-surface-3);
-  border-left-color: var(--color-coral);
 }
 
 html.dark .contact {
@@ -1407,11 +1255,6 @@ html.dark .contact__map-placeholder {
 html.dark .about__gallery::after {
   border-color: var(--color-coral);
   opacity: 0.25;
-}
-
-/* Shop featured quote */
-html.dark .shop__featured {
-  background: var(--color-sage-light);
 }
 
 /* Booking section — stays dark, slightly warmer */
@@ -1519,20 +1362,4 @@ html.dark .mobile-nav__link:hover {
 
 html.dark .mobile-nav__close {
   color: var(--color-warm-700);
-}
-
-/* Mobile responsive dark fixes */
-@media (max-width: 768px) {
-  html.dark .navbar__theme-toggle {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  html.dark .navbar--scrolled .navbar__theme-toggle {
-    color: var(--color-warm-700);
-  }
-
-  html.dark .mobile-cta-bar {
-    background: var(--color-coral);
-    color: var(--color-surface-4);
-  }
 }

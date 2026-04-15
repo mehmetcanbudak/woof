@@ -4,7 +4,7 @@
 import { $$, prefersReducedMotion } from './utils.js';
 import { throttleRAF } from './utils/throttle.js';
 
-const REVEAL_SELECTOR = '.reveal, .reveal--left, .reveal--scale, .reveal--clip, .reveal--parallax, .reveal-stagger, .divider--animated';
+const REVEAL_SELECTOR = '.reveal, .reveal--scale, .reveal--parallax';
 
 if (!prefersReducedMotion() && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(

@@ -25,14 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Smooth theme transition (activated via JS) */
-html.theme-transitioning body,
-html.theme-transitioning section,
-html.theme-transitioning nav,
-html.theme-transitioning footer {
-  transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
-}
-
 /* Grain texture overlay */
 body::after {
   content: '';
@@ -186,29 +178,6 @@ button, input, textarea, select {
   text-wrap: pretty;
 }
 
-.body-text--muted {
-  font-size: clamp(var(--text-body), 1.2vw, var(--text-sub));
-  line-height: var(--leading-loose);
-  color: var(--color-text-muted);
-  text-wrap: pretty;
-}
-
-.text-coral {
-  color: var(--color-coral);
-}
-
-.text-honey {
-  color: var(--color-honey);
-}
-
-.heading-mega {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: var(--text-mega);
-  line-height: var(--leading-none);
-  letter-spacing: var(--tracking-tighter);
-}
-
 .about__text::first-letter {
   font-family: var(--font-serif);
   font-size: 3.5em;
@@ -227,13 +196,6 @@ button, input, textarea, select {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
-}
-
-.divider {
-  width: 100%;
-  height: 1px;
-  background: var(--color-border);
-  border: none;
 }
 
 .section-padding {
@@ -305,40 +267,9 @@ section[id] {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes clipReveal {
-  from { opacity: 0; clip-path: inset(0 0 100% 0); }
-  to { opacity: 1; clip-path: inset(0 0 0 0); }
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-4px); }
-  40% { transform: translateX(4px); }
-  60% { transform: translateX(-3px); }
-  80% { transform: translateX(3px); }
-}
-
 /* ============================================
    VARIED REVEAL VARIATIONS
    ============================================ */
-.reveal--left {
-  opacity: 0;
-  transform: translateX(-32px);
-  transition:
-    opacity 0.25s var(--ease-out),
-    transform 0.25s var(--ease-out);
-}
-
-.reveal--left.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 .reveal--scale {
   opacity: 0;
   transform: scale(0.95);
@@ -350,19 +281,6 @@ section[id] {
 .reveal--scale.is-visible {
   opacity: 1;
   transform: scale(1);
-}
-
-.reveal--clip {
-  opacity: 0;
-  clip-path: inset(0 0 100% 0);
-  transition:
-    opacity 0.25s var(--ease-out),
-    clip-path 0.25s var(--ease-out);
-}
-
-.reveal--clip.is-visible {
-  opacity: 1;
-  clip-path: inset(0 0 0 0);
 }
 
 /* Scroll-linked subtle parallax */
@@ -377,40 +295,6 @@ section[id] {
 .reveal--parallax.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Stagger children */
-.reveal-stagger > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.2s var(--ease-out),
-    transform 0.2s var(--ease-out);
-}
-
-.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
-.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.03s; }
-.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.06s; }
-.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.09s; }
-.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.12s; }
-.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.15s; }
-.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.18s; }
-.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.21s; }
-
-.reveal-stagger.is-visible > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Animated divider — grows from center */
-.divider--animated {
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s var(--ease-out);
-}
-
-.divider--animated.is-visible {
-  transform: scaleX(1);
 }
 
 /* ============================================
@@ -430,10 +314,6 @@ section[id] {
 
 .hero-enter .hero__actions {
   animation: fadeInUp 0.3s var(--ease-out) 0.2s both;
-}
-
-.hero-enter .hero__right {
-  animation: fadeInUp 0.3s var(--ease-out) 0.15s both;
 }
 
 .hero-enter .hero__text-block {
@@ -463,12 +343,6 @@ section[id] {
   width: 12rem;
   height: auto;
   animation: loaderPulse 0.4s var(--ease-out) both;
-}
-
-.page-loader--hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
 }
 
 @keyframes loaderPulse {
@@ -504,17 +378,15 @@ html.page-loaded .page-loader {
 
   /* Explicitly disable animations without !important */
   .reveal,
-  .reveal--left,
   .reveal--scale,
-  .reveal--clip,
   .reveal--parallax,
-  .reveal-stagger,
-  .divider--animated,
   .hero-enter .hero__label,
   .hero-enter .hero__title,
   .hero-enter .hero__subtitle,
   .hero-enter .hero__actions,
-  .hero-enter .hero__right,
+  .hero-enter .hero__text-block,
+  .hero-enter .hero__buttons-block,
+  .hero-enter .hero__address-block,
   .page-loader,
   .cursor-img {
     animation: none;
@@ -523,22 +395,11 @@ html.page-loaded .page-loader {
 
   /* Reset to final state immediately */
   .reveal,
-  .reveal--left,
   .reveal--scale,
-  .reveal--clip,
   .reveal--parallax {
     opacity: 1;
     transform: none;
     clip-path: none;
-  }
-
-  .reveal-stagger > * {
-    opacity: 1;
-    transform: none;
-  }
-
-  .divider--animated {
-    transform: scaleX(1);
   }
 
   /* Hide cursor follower for users who can't track motion */
@@ -566,8 +427,4 @@ html.dark body {
 html.dark .skip-link {
   background: var(--color-warm-1100);
   color: var(--color-warm-50);
-}
-
-html.dark .divider {
-  background: var(--color-warm-400);
 }

@@ -19,9 +19,7 @@
 
   /* State colors */
   --color-error: #e05555;
-  --color-error-dark: #c44;
   --color-success: #8ab07a;
-  --color-success-dark: #6a905a;
 
   /* Surface elevation */
   --color-surface-1: #454040;
@@ -59,7 +57,6 @@
   --color-overlay-solid: rgba(69, 64, 64, 0.98);
 
   /* Spacing */
-  --space-3xs: 0.15rem;
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.6rem;
@@ -70,8 +67,6 @@
   --space-2xl: 2rem;
   --space-3xl: 2.5rem;
   --space-4xl: 3rem;
-  --space-5xl: 3.5rem;
-  --space-6xl: 4rem;
 
   /* Typography */
   --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -120,7 +115,6 @@
   --radius-xs: 2px;
   --radius-sm: 3px;
   --radius-md: 4px;
-  --radius-lg: 8px;
 
   /* Shadows — deeper on dark */
   --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.3);
@@ -130,13 +124,11 @@
   --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
   --duration-fast: 0.2s;
-  --duration-base: 0.25s;
   --duration-normal: 0.3s;
   --duration-slow: 0.35s;
   --duration-slower: 0.4s;
   --transition-fast: var(--duration-fast) var(--ease-out);
   --transition-base: var(--duration-normal) var(--ease-out);
-  --transition-slow: var(--duration-slower) var(--ease-out);
 
   /* Layout */
   --container-max: 1280px;
@@ -151,7 +143,6 @@
   --focus-ring-offset: 2px;
 
   /* Z-index scale */
-  --z-dropdown: 100;
   --z-progress: 450;
   --z-sticky: 500;
   --z-overlay: 900;
