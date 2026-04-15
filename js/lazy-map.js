@@ -17,7 +17,7 @@ if (mapContainer && placeholder) {
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms allow-popups-to-escape-sandbox');
     iframe.setAttribute('title', 'Woofbox location on Google Maps');
-    iframe.style.cssText = 'width:100%;height:100%;position:absolute;inset:0;border:0;filter:saturate(0.7) contrast(0.95);';
+    iframe.style.cssText = 'width:100%;height:100%;position:absolute;inset:0;border:0;filter:grayscale(100%) invert(92%) contrast(83%);';
 
     // Graceful fallback if embed fails to load
     const showFallback = () => {

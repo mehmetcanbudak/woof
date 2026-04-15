@@ -26,7 +26,7 @@ const open = () => {
   modal.classList.add('booking-modal--active');
   modal.setAttribute('aria-hidden', 'false');
   lockScroll();
-  closeBtn.focus();
+  if (closeBtn) closeBtn.focus();
 };
 
 const close = () => {
@@ -37,9 +37,10 @@ const close = () => {
   if (previousFocus && document.body.contains(previousFocus)) previousFocus.focus();
 };
 
-if (modal && openBtn && closeBtn) {
-  openBtn.addEventListener('click', open);
-  closeBtn.addEventListener('click', close);
+if (modal) {
+  if (closeBtn) {
+    closeBtn.addEventListener('click', close);
+  }
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) close();

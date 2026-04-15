@@ -136,10 +136,14 @@ html = html.replace(
   }
 );
 
-// Replace JS reference with hashed version
+// Replace JS reference with hashed version (both script src and modulepreload href)
 html = html.replace(
   /src="js\/main\.js"/,
   `src="${jsOutFile}"`
+);
+html = html.replace(
+  /href="js\/main\.js"/,
+  `href="${jsOutFile}"`
 );
 
 writeFileSync(join(DIST, 'index.html'), html);

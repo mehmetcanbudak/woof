@@ -1,4 +1,5 @@
 import { $$, prefersReducedMotion } from './utils.js';
+import { watchReducedMotion } from './utils/accessibility.js';
 
 const MAX_TILT = 6;
 
@@ -46,6 +47,4 @@ function onEnter() {
 
 if (active) enable();
 
-window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => {
-  if (prefersReducedMotion()) disable(); else enable();
-});
+watchReducedMotion(disable, enable);

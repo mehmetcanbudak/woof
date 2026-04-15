@@ -2,26 +2,11 @@
  * Cursor hover image system
  */
 import { $, $$, prefersReducedMotion } from './utils.js';
+import { watchReducedMotion } from './utils/accessibility.js';
+import { hoverData } from './data/hover-images.js';
 
 const cursorImg = $('#cursorImg');
 const cursorLabel = $('#cursorImgLabel');
-
-const hoverData = {
-  'espresso':       { src: 'assets/espresso.webp', label: 'Espresso Shot' },
-  'americano':      { src: 'assets/americano.webp', label: 'Americano' },
-  'cappuccino':     { src: 'assets/cappuccino.webp', label: 'Cappuccino' },
-  'latte':          { src: 'assets/latte.webp', label: 'Latte Art' },
-  'matcha':         { src: 'assets/matcha.webp', label: 'Matcha Latte' },
-  'iced-coffee':    { src: 'assets/iced-coffee.webp', label: 'Iced Coffee' },
-  'croissant':      { src: 'assets/croissant.webp', label: 'Croissant' },
-  'banana-bread':   { src: 'assets/banana-bread.webp', label: 'Banana Bread' },
-  'bath-brush':     { src: 'assets/woofcut.webp', label: 'Bath & Brush' },
-  'full-groom':     { src: 'assets/woofcut.webp', label: 'Full Groom' },
-  'nail-trim':      { src: 'assets/woofcut.webp', label: 'Nail Trim' },
-  'ear-cleaning':   { src: 'assets/woofcut.webp', label: 'Ear Cleaning' },
-  'teeth-brushing': { src: 'assets/woofcut.webp', label: 'Teeth Brushing' },
-  'puppy-intro':    { src: 'assets/woofcut.webp', label: 'Puppy Intro' },
-};
 
 let hoverActive = false;
 let rafRunning = false;
@@ -106,7 +91,8 @@ function onMove(e) {
 
 if (!prefersReducedMotion()) enable();
 
-// Preload hover images after page load
+watchReducedMotion(enable, disable);
+
 const preloadImages = () => {
   for (const { src } of Object.values(hoverData)) {
     const img = new Image();
@@ -115,8 +101,3 @@ const preloadImages = () => {
 };
 if (document.readyState === 'complete') preloadImages();
 else window.addEventListener('load', preloadImages);
-
-// React to runtime reduced-motion changes
-window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => {
-  if (prefersReducedMotion()) disable(); else enable();
-});

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1776029995892,
+  "lastScanned": 1776245770921,
   "projectRoot": "/Users/mehmetcanbudak/Projects/ahmet/woof",
   "techStack": {
     "languages": [
@@ -48,7 +48,7 @@
       "path": "assets",
       "purpose": "Static assets",
       "fileCount": 41,
-      "lastAccessed": 1776029995618,
+      "lastAccessed": 1776245770819,
       "keyFiles": [
         "americano.jpg",
         "americano.webp",
@@ -61,7 +61,7 @@
       "path": "css",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1776029995628,
+      "lastAccessed": 1776245770819,
       "keyFiles": [
         "base.css",
         "components.css",
@@ -72,8 +72,8 @@
     "dist": {
       "path": "dist",
       "purpose": "Distribution/build output",
-      "fileCount": 5,
-      "lastAccessed": 1776029995675,
+      "fileCount": 6,
+      "lastAccessed": 1776245770821,
       "keyFiles": [
         "favicon.svg",
         "index.html",
@@ -85,8 +85,8 @@
     "images": {
       "path": "images",
       "purpose": null,
-      "fileCount": 7,
-      "lastAccessed": 1776029995675,
+      "fileCount": 9,
+      "lastAccessed": 1776245770821,
       "keyFiles": [
         "apple-touch-icon.png",
         "favicon-16x16.png",
@@ -98,21 +98,21 @@
     "js": {
       "path": "js",
       "purpose": null,
-      "fileCount": 12,
-      "lastAccessed": 1776029995677,
+      "fileCount": 16,
+      "lastAccessed": 1776245770821,
       "keyFiles": [
         "cursor-hover.js",
         "form.js",
+        "gallery-tilt.js",
         "lazy-map.js",
-        "main.js",
-        "mobile-nav.js"
+        "magnetic-btn.js"
       ]
     },
     "dist/assets": {
       "path": "dist/assets",
       "purpose": "Static assets",
       "fileCount": 41,
-      "lastAccessed": 1776029995680,
+      "lastAccessed": 1776245770822,
       "keyFiles": [
         "americano.jpg",
         "americano.webp",

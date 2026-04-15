@@ -1,4 +1,5 @@
 import { $$, prefersReducedMotion } from './utils.js';
+import { watchReducedMotion } from './utils/accessibility.js';
 
 const STRENGTH = 0.3;
 const RADIUS = 60;
@@ -51,6 +52,4 @@ const remove = () => {
 
 if (!prefersReducedMotion()) apply();
 
-window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => {
-  if (prefersReducedMotion()) remove(); else apply();
-});
+watchReducedMotion(remove, apply);

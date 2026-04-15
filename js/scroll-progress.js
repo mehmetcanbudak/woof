@@ -1,9 +1,10 @@
 import { $, prefersReducedMotion } from './utils.js';
+import { throttleRAF } from './utils/throttle.js';
+import { watchReducedMotion } from './utils/accessibility.js';
 
 const bar = $('#scrollProgress');
 
 if (bar) {
-  let ticking = false;
   let listenerActive = false;
 
   const update = () => {
@@ -11,15 +12,9 @@ if (bar) {
     const height = document.documentElement.scrollHeight - window.innerHeight;
     const progress = height > 0 ? (scrolled / height) * 100 : 0;
     bar.style.width = `${progress}%`;
-    ticking = false;
   };
 
-  const onScroll = () => {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  };
+  const onScroll = throttleRAF(update);
 
   const start = () => {
     if (listenerActive) return;
@@ -37,10 +32,7 @@ if (bar) {
     bar.style.display = 'none';
   };
 
-  // React to runtime changes in reduced-motion preference
-  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => {
-    if (prefersReducedMotion()) stop(); else start();
-  });
+  watchReducedMotion(stop, start);
 
   if (!prefersReducedMotion()) start();
   else bar.style.display = 'none';

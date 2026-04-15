@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#3a322a">
-<script>document.documentElement.classList.replace('no-js','js')</script>
-<script>(function(){var t=localStorage.getItem('theme'),m=document.querySelector('meta[name="theme-color"]');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark');if(m)m.content='#1a1612'}})()</script>
+<meta name="theme-color" content="#2A2425">
+<meta name="color-scheme" content="dark">
+<script type="module" src="js/inline-script.js"></script>
 <title>Woofbox — Williamsburg, Brooklyn</title>
 <meta name="description" content="Woofbox is a stylish neighborhood destination in Williamsburg, Brooklyn combining a coffee bar, curated pet goods, and a grooming studio for small-sized pets.">
 
@@ -40,7 +40,7 @@
 <link rel="dns-prefetch" href="https://maps.google.com">
 
 <!-- Fonts (reduced weight variants) -->
-<link href="https://fonts.googleapis.com/css2?family=General+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=General+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" fetchpriority="high">
 
 <!-- Styles -->
 <link rel="stylesheet" href="css/tokens.css">
@@ -51,6 +51,10 @@
 <!-- Preload hero LCP image (CSS background-image is discovered late) -->
 <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
 <meta name="robots" content="index, follow">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.woofbox.nyc https://*.google.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self'">
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -72,6 +76,11 @@
     "postalCode": "11211",
     "addressCountry": "US"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "40.7128",
+    "longitude": "-74.0060"
+  },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -85,6 +94,41 @@
       "opens": "09:00",
       "closes": "18:00"
     }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/woofbox/",
+    "https://www.youtube.com/@woofbox"
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.7128,
+      "longitude": -74.0060
+    },
+    "geoRadius": 5000
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Bath & Brush",
+        "description": "Full bath with brushing service for small pets"
+      },
+      "price": "45",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Full Groom",
+        "description": "Complete grooming service including bath, haircut, and styling"
+      },
+      "price": "75",
+      "priceCurrency": "USD"
+    }
   ]
 }
 </script>
@@ -92,7 +136,7 @@
 <body>
 
 <div class="page-loader" id="pageLoader" aria-hidden="true">
-  <span class="page-loader__letter" aria-hidden="true">W</span>
+  <img src="assets/woofbox_logo_white.png" alt="Woofbox" class="page-loader__img" width="600" height="210" fetchpriority="high">
 </div>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -109,18 +153,14 @@
 <nav class="navbar" id="navbar" aria-label="Main navigation">
   <div class="container">
     <div class="navbar__inner">
-      <a href="#" class="navbar__logo" translate="no">Woofbox</a>
+      <a href="#" class="navbar__logo" translate="no"><img src="assets/woofbox_logo_white.png" alt="Woofbox Logo" class="navbar__logo-img" width="600" height="210"></a>
       <div class="navbar__links">
-        <a href="#about" class="navbar__link">About</a>
+        <a href="about.html" class="navbar__link">About</a>
         <a href="#shop" class="navbar__link">Shop</a>
         <a href="#grooming" class="navbar__link">Grooming</a>
         <a href="#contact" class="navbar__link">Contact</a>
       </div>
       <div class="navbar__actions">
-        <button type="button" class="navbar__theme-toggle" id="themeToggle" aria-label="Switch to dark theme">
-          <svg class="navbar__theme-icon navbar__theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="navbar__theme-icon navbar__theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        </button>
         <button type="button" class="navbar__cta" data-booking-trigger>Book Now</button>
       </div>
       <button type="button" class="navbar__mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">
@@ -135,7 +175,7 @@
 <!-- Mobile Nav Overlay -->
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true" aria-hidden="true">
   <button type="button" class="mobile-nav__close" id="mobileClose" aria-label="Close menu">Close</button>
-  <a href="#about" class="mobile-nav__link">About</a>
+  <a href="about.html" class="mobile-nav__link">About</a>
   <a href="#shop" class="mobile-nav__link">Shop</a>
   <a href="#grooming" class="mobile-nav__link">Grooming</a>
   <a href="#contact" class="mobile-nav__link">Contact</a>
@@ -147,28 +187,31 @@
      ============================================ -->
 <section class="hero hero-enter" id="hero">
   <div class="hero__bg">
-    <div class="hero__slide hero__slide--1 hero__slide--active"></div>
-    <div class="hero__slide hero__slide--2"></div>
+    <div class="hero__slide hero__slide--1"></div>
   </div>
   <div class="hero__content">
     <div class="hero__inner">
-      <div class="hero__left">
+      <div class="hero__text-block reveal">
         <p class="hero__label">Williamsburg, Brooklyn</p>
         <h1 class="hero__title heading-display"><span translate="no">Woof</span><br>in <em>style</em>.</h1>
-        <p class="hero__subtitle">Coffee, curated goods, and a grooming studio — designed for small pets and the humans who adore them.</p>
-        <div class="hero__actions">
-          <button type="button" class="btn btn--primary" data-booking-trigger>Book Appointment</button>
-          <a href="#about" class="btn btn--outline">Explore the Space</a>
-        </div>
+        <p class="hero__subtitle">Coffee, curated goods, and a grooming studio.</p>
       </div>
-      <div class="hero__right">
-        <address class="hero__address">
-          214 Grand St<br>
-          Brooklyn, NY 11211
-        </address>
-        <div class="hero__note">
-          Small pets only<br>
-          Pickup by 7:00&nbsp;PM
+      <div class="hero__bottom-row">
+        <div class="hero__buttons-block reveal reveal-delay-1">
+          <div class="hero__actions">
+            <button type="button" class="btn btn--primary" data-booking-trigger>Book Appointment</button>
+            <a href="about.html" class="btn btn--outline">Explore the Space</a>
+          </div>
+        </div>
+        <div class="hero__address-block reveal reveal-delay-2">
+          <address class="hero__address">
+            214 Grand St<br>
+            Brooklyn, NY 11211
+          </address>
+          <div class="hero__note">
+            Small pets only<br>
+            Pickup 2 hours after appointment
+          </div>
         </div>
       </div>
     </div>
@@ -181,90 +224,6 @@
 <main id="main">
 
 <!-- ============================================
-     ABOUT
-     ============================================ -->
-<section class="about section-padding reveal" id="about">
-  <div class="container">
-    <div class="about__inner">
-      <div class="gallery about__gallery reveal--scale">
-        <div class="gallery__item gallery__item--tall">
-          <img src="assets/wannawoof.webp" width="720" height="900" alt="Storefront — a stylish pet and their human at Woofbox" loading="lazy" decoding="async">
-        </div>
-        <div class="gallery__item">
-          <img src="assets/wooflogocolor.webp" width="360" height="360" alt="Woofbox brand logo in full color" loading="lazy" decoding="async">
-        </div>
-        <div class="gallery__item">
-          <img src="assets/woofshowerafter.webp" width="360" height="450" alt="A freshly groomed small dog looking camera-ready after a Woofbox bath session" loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div>
-        <h2 class="heading-section about__heading">A boutique for small<br>pets & their people.</h2>
-        <p class="body-text about__text">
-          Part café, part curated shop, part grooming studio — Woofbox is a neighborhood destination on Grand Street where Williamsburg's most stylish pets and their humans come to linger. Street level, grab a coffee and browse. Downstairs, a calm grooming studio for small pets. All considered.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ============================================
-     GROOMING
-     ============================================ -->
-<section class="grooming section-padding reveal" id="grooming" aria-label="Grooming studio services and pricing">
-  <div class="container">
-    <div class="grooming__inner">
-      <div class="grooming__intro">
-        <p class="label-text grooming__intro-label">Downstairs</p>
-        <h2 class="heading-section grooming__intro-heading">The Grooming Studio</h2>
-        <p class="body-text grooming__intro-text">
-          Below the café, a calm and refined grooming space. No fluorescent lights, no chaos — just skilled hands, gentle products, and a dog who leaves looking like they just walked off a magazine cover.
-        </p>
-        <button type="button" class="btn btn--coral" data-booking-trigger>Book a Session</button>
-        <div class="grooming__notes">
-          <div class="grooming__note">
-            <span class="grooming__note-icon" aria-hidden="true"></span>
-            Grooming services available for small-sized pets only
-          </div>
-          <div class="grooming__note">
-            <span class="grooming__note-icon" aria-hidden="true"></span>
-            Latest pickup time: 7:00&nbsp;PM
-          </div>
-        </div>
-      </div>
-      <div class="grooming__services">
-        <p class="label-text grooming__services-label">Services & Pricing</p>
-        <div class="menu-row" data-hover-img="bath-brush">
-          <span class="menu-row__name">Bath & Brush</span>
-          <span class="menu-row__price">from $45</span>
-        </div>
-        <div class="menu-row" data-hover-img="full-groom">
-          <span class="menu-row__name">Full Groom</span>
-          <span class="menu-row__price">from $75</span>
-        </div>
-        <div class="menu-row" data-hover-img="nail-trim">
-          <span class="menu-row__name">Nail Trim</span>
-          <span class="menu-row__price">$20</span>
-        </div>
-        <div class="menu-row" data-hover-img="ear-cleaning">
-          <span class="menu-row__name">Ear Cleaning</span>
-          <span class="menu-row__price">$15</span>
-        </div>
-        <div class="menu-row" data-hover-img="teeth-brushing">
-          <span class="menu-row__name">Teeth Brushing</span>
-          <span class="menu-row__price">$12</span>
-        </div>
-        <div class="menu-row" data-hover-img="puppy-intro">
-          <span class="menu-row__name">Puppy Intro Groom</span>
-          <span class="menu-row__price">from $40</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
      COFFEE + MERCH
      ============================================ -->
 <section class="shop section-padding reveal" id="shop" aria-label="Coffee, pastries, and curated goods">
@@ -275,10 +234,12 @@
       <p class="body-text shop__header-text">The front of house. Grab a latte, browse the racks, pick up something beautiful for your four-legged companion.</p>
     </div>
     <div class="shop__grid">
-      <!-- Coffee Bar -->
+      <!-- Coffee & Pastries -->
       <div class="shop__column reveal-delay-1">
         <h3 class="heading-sub shop__column-heading">Coffee & Pastries</h3>
         <p class="shop__column-sub">Carefully sourced, thoughtfully prepared.</p>
+        
+        <p class="shop__menu-subheading">Coffee</p>
         <div class="shop__items">
           <div class="menu-row" data-hover-img="espresso">
             <span class="menu-row__name">Espresso</span>
@@ -296,13 +257,29 @@
             <span class="menu-row__name">Latte</span>
             <span class="menu-row__price">$6</span>
           </div>
-          <div class="menu-row" data-hover-img="matcha">
-            <span class="menu-row__name">Matcha Latte</span>
-            <span class="menu-row__price">$6</span>
-          </div>
+        </div>
+        
+        <p class="shop__menu-subheading">Iced Coffee</p>
+        <div class="shop__items">
           <div class="menu-row" data-hover-img="iced-coffee">
             <span class="menu-row__name">Iced Coffee</span>
             <span class="menu-row__price">$5</span>
+          </div>
+          <div class="menu-row" data-hover-img="iced-latte">
+            <span class="menu-row__name">Iced Latte</span>
+            <span class="menu-row__price">$6</span>
+          </div>
+          <div class="menu-row" data-hover-img="cold-brew">
+            <span class="menu-row__name">Cold Brew</span>
+            <span class="menu-row__price">$5</span>
+          </div>
+        </div>
+        
+        <p class="shop__menu-subheading">Specials</p>
+        <div class="shop__items">
+          <div class="menu-row" data-hover-img="matcha">
+            <span class="menu-row__name">Matcha Latte</span>
+            <span class="menu-row__price">$6</span>
           </div>
           <div class="menu-row" data-hover-img="croissant">
             <span class="menu-row__name">Croissant</span>
@@ -313,6 +290,7 @@
             <span class="menu-row__price">$5</span>
           </div>
         </div>
+        
         <div class="shop__featured">
           <p class="shop__featured-text">Puppuccino — $3<br><span class="shop__featured-sub">A little whipped cream moment. Because they deserve it.</span></p>
         </div>
@@ -385,24 +363,56 @@
 </section>
 
 <!-- ============================================
-     BOOKING
+     GROOMING
      ============================================ -->
-<section class="booking reveal" id="booking">
-  <div class="booking__particles" aria-hidden="true">
-    <div class="booking__particle"></div>
-    <div class="booking__particle"></div>
-    <div class="booking__particle"></div>
-    <div class="booking__particle"></div>
-  </div>
+<section class="grooming section-padding reveal" id="grooming" aria-label="Grooming studio services and pricing">
   <div class="container">
-    <div class="booking__inner">
-      <h2 class="heading-section booking__heading"><em>Woof</em> needs Grooming?</h2>
-      <p class="body-text booking__text">A calm, personal experience for your small pet. No automated queues, no rush — just skilled hands and gentle products.</p>
-      <div class="booking__badges">
-        <span class="note-badge">Small pets only</span>
-        <span class="note-badge">Pickup by 7&nbsp;PM</span>
+    <div class="grooming__inner">
+      <div class="grooming__intro">
+        <p class="label-text grooming__intro-label">Downstairs</p>
+        <h2 class="heading-section grooming__intro-heading">The Grooming Studio</h2>
+        <p class="body-text grooming__intro-text">
+          Below the café, a calm and refined grooming space. No fluorescent lights, no chaos — just skilled hands, gentle products, and a dog who leaves looking like they just walked off a magazine cover.
+        </p>
+        <button type="button" class="btn btn--coral" data-booking-trigger>Book a Session</button>
+        <div class="grooming__notes">
+          <div class="grooming__note">
+            <span class="grooming__note-icon" aria-hidden="true"></span>
+            Grooming services available for small-sized pets only
+          </div>
+          <div class="grooming__note">
+            <span class="grooming__note-icon" aria-hidden="true"></span>
+            Pets must be picked up 2 hours after appointment time
+          </div>
+        </div>
       </div>
-      <button type="button" class="btn btn--coral" id="openBooking">Book an Appointment</button>
+      <div class="grooming__services">
+        <p class="label-text grooming__services-label">Services & Pricing</p>
+        <button type="button" class="menu-row" data-hover-img="bath-brush" aria-label="Bath and Brush, from $45">
+          <span class="menu-row__name">Bath & Brush</span>
+          <span class="menu-row__price">from $45</span>
+        </button>
+        <button type="button" class="menu-row" data-hover-img="full-groom" aria-label="Full Groom, from $75">
+          <span class="menu-row__name">Full Groom</span>
+          <span class="menu-row__price">from $75</span>
+        </button>
+        <button type="button" class="menu-row" data-hover-img="nail-trim" aria-label="Nail Trim, $20">
+          <span class="menu-row__name">Nail Trim</span>
+          <span class="menu-row__price">$20</span>
+        </button>
+        <button type="button" class="menu-row" data-hover-img="ear-cleaning" aria-label="Ear Cleaning, $15">
+          <span class="menu-row__name">Ear Cleaning</span>
+          <span class="menu-row__price">$15</span>
+        </button>
+        <button type="button" class="menu-row" data-hover-img="teeth-brushing" aria-label="Teeth Brushing, $12">
+          <span class="menu-row__name">Teeth Brushing</span>
+          <span class="menu-row__price">$12</span>
+        </button>
+        <button type="button" class="menu-row" data-hover-img="puppy-intro" aria-label="Puppy Intro Groom, from $40">
+          <span class="menu-row__name">Puppy Intro Groom</span>
+          <span class="menu-row__price">from $40</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -433,7 +443,7 @@
             <p class="contact__detail-text"><a href="tel:+17185551234">(718) 555-1234</a></p>
           </div>
           <div class="contact__detail contact__detail--full">
-            <p class="contact__detail-text contact__detail-disclaimer">Grooming for small-sized pets only · Latest pickup 7:00&nbsp;PM</p>
+            <p class="contact__detail-text contact__detail-disclaimer">Grooming for small-sized pets only · Pets must be picked up 2 hours after appointment time</p>
           </div>
         </div>
       </div>
@@ -454,82 +464,17 @@
 </main>
 
 <!-- Booking Modal -->
-<div class="booking-modal" id="bookingModal" role="dialog" aria-label="Book a grooming appointment" aria-modal="true" aria-hidden="true">
+<div class="booking-modal" id="bookingModal" role="dialog" aria-label="Coming soon" aria-modal="true" aria-hidden="true">
   <div class="booking-modal__panel">
     <button type="button" class="booking-modal__close" id="closeBooking" aria-label="Close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <h3 class="booking-modal__heading">Book a Grooming Session</h3>
-    <form id="bookingForm" novalidate>
-      <div class="form-grid">
-        <div class="form-field">
-          <label for="ownerName">Owner Name</label>
-          <input type="text" id="ownerName" name="ownerName" autocomplete="name" placeholder="Your full name…" required aria-describedby="error-ownerName">
-          <span class="form-field__error" id="error-ownerName">Please enter your name</span>
-        </div>
-        <div class="form-field">
-          <label for="petName">Pet Name</label>
-          <input type="text" id="petName" name="petName" autocomplete="off" placeholder="Your pet's name…" required aria-describedby="error-petName">
-          <span class="form-field__error" id="error-petName">Please enter your pet's name</span>
-        </div>
-        <div class="form-field">
-          <label for="petType">Pet Type</label>
-          <select id="petType" name="petType" autocomplete="off" required aria-describedby="error-petType">
-            <option value="" disabled selected>Select</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="other">Other</option>
-          </select>
-          <span class="form-field__error" id="error-petType">Please select a pet type</span>
-        </div>
-        <div class="form-field">
-          <label for="breed">Breed</label>
-          <input type="text" id="breed" name="breed" autocomplete="off" placeholder="e.g. French Bulldog…">
-        </div>
-        <div class="form-field">
-          <label for="service">Requested Service</label>
-          <select id="service" name="service" autocomplete="off" required aria-describedby="error-service">
-            <option value="" disabled selected>Select a service</option>
-            <option value="bath-brush">Bath &amp; Brush — from $45</option>
-            <option value="full-groom">Full Groom — from $75</option>
-            <option value="nail-trim">Nail Trim — $20</option>
-            <option value="ear-cleaning">Ear Cleaning — $15</option>
-            <option value="teeth-brushing">Teeth Brushing — $12</option>
-            <option value="puppy-intro">Puppy Intro Groom — from $40</option>
-          </select>
-          <span class="form-field__error" id="error-service">Please select a service</span>
-        </div>
-        <div class="form-field">
-          <label for="prefDate">Preferred Date</label>
-          <input type="date" id="prefDate" name="preferredDate" autocomplete="off">
-        </div>
-        <div class="form-field">
-          <label for="prefTime">Preferred Time</label>
-          <input type="time" id="prefTime" name="preferredTime" autocomplete="off">
-        </div>
-        <div class="form-field">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(xxx) xxx-xxxx…" required aria-describedby="error-phone">
-          <span class="form-field__error" id="error-phone">Please enter your phone number</span>
-        </div>
-        <div class="form-field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com…" spellcheck="false" required aria-describedby="error-email">
-          <span class="form-field__error" id="error-email">Please enter a valid email</span>
-        </div>
-        <div class="form-field form-field--full">
-          <label for="notes">Notes</label>
-          <textarea id="notes" name="notes" autocomplete="off" placeholder="Anything we should know about your pet?…" maxlength="500"></textarea>
-        </div>
-      </div>
-      <div class="form-submit">
-        <button type="submit" class="btn btn--coral" id="submitBtn">Request Appointment</button>
-        <p class="form-note">We'll confirm by email or text. Grooming is for small-sized pets only.</p>
-      </div>
-      <div class="form-success" id="formSuccess" aria-live="polite">
-        <p class="form-success__text">Thank you! We've received your request and will confirm shortly.</p>
-      </div>
-    </form>
+    <div class="coming-soon">
+      <p class="coming-soon__label">Coming Soon</p>
+      <h3 class="coming-soon__heading">Online Booking</h3>
+      <p class="coming-soon__text">We're working on it. Call us to book your appointment.</p>
+      <a href="tel:+17185551234" class="btn btn--coral">(718) 555-1234</a>
+    </div>
   </div>
 </div>
 
@@ -540,13 +485,13 @@
   <div class="container">
     <div class="footer__inner">
       <div>
-        <p class="footer__brand-name" translate="no">Woofbox</p>
+        <p class="footer__brand-name" translate="no"><img src="assets/woofbox_logo_white.png" alt="Woofbox Logo" class="footer__logo-img" width="600" height="210"></p>
         <p class="footer__brand-text">A Williamsburg boutique for small pets and their humans. Coffee, curated goods, and a grooming studio — all under one roof.</p>
       </div>
       <div>
         <p class="footer__heading">Navigate</p>
         <div class="footer__links">
-          <a href="#about" class="footer__link">About</a>
+          <a href="about.html" class="footer__link">About</a>
           <a href="#shop" class="footer__link">Coffee & Shop</a>
           <a href="#grooming" class="footer__link">Grooming</a>
           <a href="#booking" class="footer__link" data-booking-trigger>Book Now</a>
@@ -593,11 +538,6 @@
 
 <!-- App -->
 <script type="module" src="js/main.js"></script>
-
-<!-- Mobile sticky CTA -->
-<a href="#booking" class="mobile-cta-bar" data-booking-trigger aria-label="Book a grooming appointment">
-  Book Appointment
-</a>
 
 </body>
 </html>

@@ -1,6 +1,22 @@
 /* ============================================
-   BUTTONS
-   ============================================ */
+    LOGO IMAGES
+    ============================================ */
+.navbar__logo-img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+
+.footer__logo-img {
+  height: 3rem;
+  width: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+    BUTTONS
+    ============================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -338,7 +354,7 @@
   -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--duration-slower) var(--ease-out), visibility var(--duration-slower) var(--ease-out);
+  transition: opacity 0.25s var(--ease-out), visibility 0.25s var(--ease-out);
 }
 
 .booking-modal--active {
@@ -356,7 +372,7 @@
   padding: clamp(1.75rem, 3vw, 2.5rem);
   position: relative;
   transform: translateY(20px) scale(0.96);
-  transition: transform var(--duration-slower) var(--ease-out);
+  transition: transform 0.25s var(--ease-out);
 }
 
 .booking-modal--active .booking-modal__panel {
@@ -394,6 +410,38 @@
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   color: var(--color-text-primary);
   margin-bottom: var(--space-3xl);
+}
+
+.coming-soon {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.coming-soon__label {
+  font-family: var(--font-accent);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide3);
+  text-transform: uppercase;
+  color: var(--color-coral);
+  margin-bottom: var(--space-md);
+}
+
+.coming-soon__heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md2);
+}
+
+.coming-soon__text {
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Form fields */
@@ -606,14 +654,21 @@
   pointer-events: none;
   opacity: 0;
   transform: scale(0.85) translate(4px, 4px);
-  transition: opacity var(--transition-base), transform var(--transition-base);
+  transition: opacity 0.15s var(--ease-out), transform 0.15s var(--ease-out);
   box-shadow: var(--shadow-lg);
   background: var(--color-warm-300);
+}
+
+@media (hover: none) {
+  .cursor-img {
+    display: none;
+  }
 }
 
 .cursor-img--visible {
   opacity: 1;
   transform: scale(1) translate(4px, 4px);
+  transition: opacity 0.15s var(--ease-out), transform 0.15s var(--ease-out);
 }
 
 .cursor-img__inner {
@@ -795,4 +850,28 @@ html.dark .cursor-img {
 
 html.dark .cursor-img__inner {
   color: var(--color-warm-700);
+}
+
+@media (hover: none) {
+  .menu-row:hover {
+    padding-left: 0;
+    background: none;
+  }
+
+  .merch-bento__item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .merch-bento__item:hover img {
+    transform: none;
+  }
+
+  .gallery__item:hover {
+    box-shadow: none;
+  }
+
+  .gallery__item:hover img {
+    transform: none;
+  }
 }

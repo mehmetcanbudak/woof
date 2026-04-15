@@ -1,5 +1,7 @@
-dist/
-node_modules/
-.pi/
+.vercel
+.env
+.env.local
 .DS_Store
 *.log
+node_modules/
+dist/

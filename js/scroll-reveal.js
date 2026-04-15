@@ -2,6 +2,7 @@
  * Scroll reveal via IntersectionObserver
  */
 import { $$, prefersReducedMotion } from './utils.js';
+import { throttleRAF } from './utils/throttle.js';
 
 const REVEAL_SELECTOR = '.reveal, .reveal--left, .reveal--scale, .reveal--clip, .reveal--parallax, .reveal-stagger, .divider--animated';
 
@@ -26,26 +27,18 @@ if (!prefersReducedMotion() && 'IntersectionObserver' in window) {
 // Hero W watermark parallax
 const hero = document.querySelector('.hero');
 if (hero && !prefersReducedMotion()) {
-  let heroTicking = false;
   let heroDone = false;
-  const onHeroScroll = () => {
+  const onHeroScroll = throttleRAF(() => {
     if (heroDone) return;
-    if (!heroTicking) {
-      requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-        const heroHeight = hero.offsetHeight;
-        if (scrollY < heroHeight) {
-          const offset = scrollY * 0.08;
-          hero.style.setProperty('--hero-w-offset', `${offset}px`);
-        } else {
-          // Scrolled past hero — clean up listener
-          heroDone = true;
-          window.removeEventListener('scroll', onHeroScroll);
-        }
-        heroTicking = false;
-      });
-      heroTicking = true;
+    const scrollY = window.scrollY;
+    const heroHeight = hero.offsetHeight;
+    if (scrollY < heroHeight) {
+      const offset = scrollY * 0.08;
+      hero.style.setProperty('--hero-w-offset', `${offset}px`);
+    } else {
+      heroDone = true;
+      window.removeEventListener('scroll', onHeroScroll);
     }
-  };
+  });
   window.addEventListener('scroll', onHeroScroll, { passive: true });
 }

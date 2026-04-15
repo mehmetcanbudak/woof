@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — Woofbox</title>
+<meta name="description" content="The page you're looking for doesn't exist. Return to Woofbox homepage.">
+<link rel="canonical" href="https://woofbox.nyc/404.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<style>
+main {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--section-padding);
+}
+.error-code {
+  font-family: var(--font-accent);
+  font-size: clamp(6rem, 20vw, 12rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-coral);
+  margin-bottom: var(--space-lg);
+}
+.error-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-mega);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+.error-text {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3xl);
+  max-width: 40ch;
+  margin-inline: auto;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-2xl);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  background: var(--color-bark);
+  color: var(--color-cream);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+.btn:hover {
+  background: var(--color-coral);
+  transform: translateY(-2px);
+}
+.btn:focus {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+</style>
+</head>
+<body>
+<main id="main">
+  <div>
+    <p class="error-code" aria-hidden="true">404</p>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-text">The page you're looking for doesn't exist or may have been moved. Let's get you back on track.</p>
+    <a href="/" class="btn">Return Home</a>
+  </div>
+</main>
+</body>
+</html>

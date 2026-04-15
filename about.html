@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="js dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1612">
+<meta name="color-scheme" content="dark">
+
+<title>About — Woofbox</title>
+<meta name="description" content="Learn about Woofbox - a stylish neighborhood destination in Williamsburg, Brooklyn combining a coffee bar, curated pet goods, and a grooming studio for small-sized pets.">
+
+<!-- Canonical & Favicon -->
+<link rel="canonical" href="https://woofbox.nyc/about">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About — Woofbox">
+<meta property="og:description" content="A stylish neighborhood destination in Williamsburg, Brooklyn for small pets and their humans.">
+<meta property="og:image" content="https://woofbox.nyc/images/hero.jpg">
+<meta property="og:url" content="https://woofbox.nyc/about">
+<meta property="og:type" content="website">
+
+<!-- Resource Hints -->
+<link rel="modulepreload" href="js/main.js">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=General+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.woofbox.nyc https://*.google.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self'">
+</head>
+<body>
+
+<div class="page-loader" id="pageLoader" aria-hidden="true">
+  <img src="assets/woofbox_logo_white.png" alt="Woofbox" class="page-loader__img" width="600" height="210">
+</div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<a href="#contact" class="skip-link">Skip to contact</a>
+
+<div id="liveRegion" aria-live="polite" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"></div>
+
+<!-- ============================================
+     NAVBAR
+     ============================================ -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" translate="no"><img src="assets/woofbox_logo_white.png" alt="Woofbox Logo" class="navbar__logo-img" width="600" height="210"></a>
+      <div class="navbar__links">
+        <a href="index.html#about" class="navbar__link">About</a>
+        <a href="index.html#shop" class="navbar__link">Shop</a>
+        <a href="index.html#grooming" class="navbar__link">Grooming</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+      </div>
+      <div class="navbar__actions">
+        <button type="button" class="navbar__cta" data-booking-trigger>Book Now</button>
+      </div>
+      <button type="button" class="navbar__mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true" aria-hidden="true">
+  <button type="button" class="mobile-nav__close" id="mobileClose" aria-label="Close menu">Close</button>
+  <a href="index.html#about" class="mobile-nav__link">About</a>
+  <a href="index.html#shop" class="mobile-nav__link">Shop</a>
+  <a href="index.html#grooming" class="mobile-nav__link">Grooming</a>
+  <a href="index.html#contact" class="mobile-nav__link">Contact</a>
+   <a href="#booking" class="mobile-nav__link mobile-nav__link--cta" data-booking-trigger>Book Now</a>
+</div>
+
+<!-- ============================================
+     ABOUT PAGE HERO
+     ============================================ -->
+<section class="about-hero">
+  <div class="about-hero__bg"></div>
+  <div class="container">
+    <div class="about-hero__inner">
+      <h1 class="heading-display about-hero__title">A boutique for small<br>pets & their people.</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+<section class="about section-padding reveal" id="about">
+  <div class="container">
+    <div class="about__inner">
+      <div class="gallery about__gallery reveal--scale">
+        <div class="gallery__item gallery__item--tall">
+          <img src="assets/wannawoof.webp" width="720" height="900" alt="Storefront — a stylish pet and their human at Woofbox" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery__item">
+          <img src="assets/wooflogocolor.webp" width="360" height="360" alt="Woofbox brand logo in full color" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery__item">
+          <img src="assets/woofshowerafter.webp" width="360" height="450" alt="A freshly groomed small dog looking camera-ready after a Woofbox bath session" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div>
+        <p class="body-text about__text">
+          Part café, part curated shop, part grooming studio — Woofbox is a neighborhood destination on Grand Street where Williamsburg's most stylish pets and their humans come to linger. Street level, grab a coffee and browse. Downstairs, a calm grooming studio for small pets. All considered.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     BOOKING
+     ============================================ -->
+<section class="booking reveal" id="booking">
+  <div class="booking__particles" aria-hidden="true">
+    <div class="booking__particle"></div>
+    <div class="booking__particle"></div>
+    <div class="booking__particle"></div>
+    <div class="booking__particle"></div>
+  </div>
+  <div class="container">
+    <div class="booking__inner">
+      <h2 class="heading-section booking__heading"><em>Woof</em> needs Grooming?</h2>
+      <p class="body-text booking__text">A calm, personal experience for your small pet. No automated queues, no rush — just skilled hands and gentle products.</p>
+      <div class="booking__badges">
+        <span class="note-badge">Small pets only</span>
+        <span class="note-badge">Pickup 2 hours after appointment</span>
+      </div>
+      <button type="button" class="btn btn--coral" id="openBooking">Book an Appointment</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand-name" translate="no"><img src="assets/woofbox_logo_white.png" alt="Woofbox Logo" class="footer__logo-img" width="600" height="210"></p>
+        <p class="footer__brand-text">A Williamsburg boutique for small pets and their humans. Coffee, curated goods, and a grooming studio — all under one roof.</p>
+      </div>
+      <div>
+        <p class="footer__heading">Navigate</p>
+        <div class="footer__links">
+          <a href="index.html#about" class="footer__link">About</a>
+          <a href="index.html#shop" class="footer__link">Coffee & Shop</a>
+          <a href="index.html#grooming" class="footer__link">Grooming</a>
+          <a href="index.html#booking" class="footer__link" data-booking-trigger>Book Now</a>
+          <a href="index.html#contact" class="footer__link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Visit</p>
+        <div class="footer__links">
+          <a href="https://www.google.com/maps/search/?api=1&query=214+Grand+St+Brooklyn+NY+11211" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--address">214 Grand St<br>Brooklyn, NY 11211</a>
+          <a href="mailto:hello@woofbox.nyc" class="footer__link">hello@woofbox.nyc</a>
+          <a href="tel:+17185551234" class="footer__link">(718) 555-1234</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Follow</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/woofbox/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <button type="button" class="footer__social-link" aria-label="TikTok (coming soon)" disabled>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.17v-3.44a4.85 4.85 0 01-3.59-1.37V6.69h3.59z"/></svg>
+          </button>
+          <a href="https://www.youtube.com/@woofbox" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.27V8.73L15.82 12l-6.07 3.27z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Woofbox. All rights reserved.</p>
+      <div class="footer__bottom-links">
+          <span class="footer__bottom-link" aria-disabled="true">Privacy</span>
+          <span class="footer__bottom-link" aria-disabled="true">Terms</span>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- App -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>

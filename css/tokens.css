@@ -1,62 +1,62 @@
 /* ============================================
-   DESIGN TOKENS
+   DESIGN TOKENS — Dark Mode Default
    ============================================ */
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
   /* Brand colors */
-  --color-bark: #3a322a;
-  --color-bark-dark: #2a231d;
-  --color-cream: #faf8f5;
-  --color-coral: #d4755a;
+  --color-bark: #2e2821;
+  --color-bark-dark: #1a1612;
+  --color-cream: #e8e2db;
+  --color-coral: #e08868;
   --color-coral-dark: #c4644a;
 
   /* Secondary accents */
-  --color-sage: #7a9a6a;
-  --color-sage-light: rgba(122, 154, 106, 0.08);
-  --color-honey: #c4a86a;
-  --color-honey-light: rgba(196, 168, 106, 0.1);
+  --color-sage: #8ab07a;
+  --color-sage-light: rgba(138, 176, 122, 0.08);
+  --color-honey: #d4b87a;
+  --color-honey-light: rgba(212, 184, 122, 0.1);
 
   /* State colors */
-  --color-error: #c44;
-  --color-error-dark: #a33;
-  --color-success: #7a9a6a;
-  --color-success-dark: #5a7a4a;
+  --color-error: #e05555;
+  --color-error-dark: #c44;
+  --color-success: #8ab07a;
+  --color-success-dark: #6a905a;
 
   /* Surface elevation */
-  --color-surface-1: var(--color-warm-50);
-  --color-surface-2: var(--color-warm-100);
-  --color-surface-3: var(--color-warm-200);
-  --color-surface-4: var(--color-warm-300);
+  --color-surface-1: #454040;
+  --color-surface-2: #3a3535;
+  --color-surface-3: #2f2a2a;
+  --color-surface-4: #252020;
 
-  /* Neutral scale (warm grays) */
-  --color-warm-50: #faf8f5;
-  --color-warm-100: #f5f0eb;
-  --color-warm-200: #ede8e2;
-  --color-warm-300: #e8e2db;
-  --color-warm-400: #d4cbc2;
-  --color-warm-500: #c4bbb2;
-  --color-warm-600: #b8afa5;
-  --color-warm-700: #a69d93;
+  /* Neutral scale (warm grays — dark base) */
+  --color-warm-50: #454040;
+  --color-warm-100: #3a3535;
+  --color-warm-200: #2f2a2a;
+  --color-warm-300: #252020;
+  --color-warm-400: #332d25;
+  --color-warm-500: #4a4139;
+  --color-warm-600: #635a50;
+  --color-warm-700: #7a7268;
   --color-warm-800: #9a8e82;
-  --color-warm-900: #7a7268;
-  --color-warm-1000: #5a5249;
-  --color-warm-1100: #3a322a;
-  --color-warm-1200: #2a231d;
+  --color-warm-900: #b8afa5;
+  --color-warm-1000: #d4cbc2;
+  --color-warm-1100: #e0dbd5;
+  --color-warm-1200: #ede8e2;
 
   /* Semantic colors */
-  --color-text-primary: var(--color-bark);
-  --color-text-secondary: var(--color-warm-1000);
-  --color-text-muted: var(--color-warm-800);
-  --color-bg-primary: var(--color-warm-50);
-  --color-bg-secondary: var(--color-warm-100);
-  --color-bg-tertiary: var(--color-warm-200);
-  --color-border: var(--color-warm-300);
-  --color-border-light: rgba(0, 0, 0, 0.05);
+  --color-text-primary: #f0ece7;
+  --color-text-secondary: #dcd6cf;
+  --color-text-muted: #9a8e82;
+  --color-bg-primary: #454040;
+  --color-bg-secondary: #1e1a15;
+  --color-bg-tertiary: #232019;
+  --color-border: #332d25;
+  --color-border-light: rgba(255, 255, 255, 0.06);
 
   /* Overlay surfaces */
-  --color-overlay-bg: rgba(250, 248, 245, 0.95);
-  --color-overlay-solid: rgba(250, 248, 245, 0.98);
+  --color-overlay-bg: rgba(69, 64, 64, 0.97);
+  --color-overlay-solid: rgba(69, 64, 64, 0.98);
 
   /* Spacing */
   --space-3xs: 0.15rem;
@@ -122,10 +122,10 @@
   --radius-md: 4px;
   --radius-lg: 8px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+  /* Shadows — deeper on dark */
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
   /* Transitions */
   --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
@@ -145,8 +145,8 @@
   --scroll-offset: 80px;
 
   /* Focus */
-  --focus-ring-color: var(--color-bark);
-  --focus-ring-color-on-dark: var(--color-coral);
+  --focus-ring-color: #e08868;
+  --focus-ring-color-on-dark: #d4755a;
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
 
@@ -160,71 +160,4 @@
   --z-loader: 10000;
   --z-skip: 11000;
 
-}
-
-/* ============================================
-   DARK THEME — toggled via html.dark class
-   ============================================ */
-html.dark {
-  color-scheme: dark;
-
-  /* Brand colors — kept dark, slightly adjusted */
-  --color-bark: #2e2821;
-  --color-bark-dark: #1a1612;
-  --color-cream: #e8e2db;
-  --color-coral: #e08868;
-  --color-coral-dark: #c4644a;
-
-  /* Neutral scale — dark base */
-  --color-warm-50: #1a1612;
-  --color-warm-100: #1e1a15;
-  --color-warm-200: #232019;
-  --color-warm-300: #2a251e;
-  --color-warm-400: #332d25;
-  --color-warm-500: #4a4139;
-  --color-warm-600: #635a50;
-  --color-warm-700: #7a7268;
-  --color-warm-800: #9a8e82;
-  --color-warm-900: #b8afa5;
-  --color-warm-1000: #d4cbc2;
-  --color-warm-1100: #e0dbd5;
-  --color-warm-1200: #ede8e2;
-
-  /* Semantic — dark surfaces */
-  --color-text-primary: #f0ece7;
-  --color-text-secondary: #dcd6cf;
-  --color-text-muted: #9a8e82;
-  --color-bg-primary: #1a1612;
-  --color-bg-secondary: #1e1a15;
-  --color-bg-tertiary: #232019;
-  --color-border: #332d25;
-  --color-border-light: rgba(255, 255, 255, 0.06);
-
-  /* Overlay surfaces */
-  --color-overlay-bg: rgba(26, 22, 18, 0.97);
-  --color-overlay-solid: rgba(26, 22, 18, 0.98);
-
-  /* Focus */
-  --focus-ring-color: #e08868;
-  --focus-ring-color-on-dark: #d4755a;
-
-  /* Shadows — deeper on dark */
-  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
-  /* Surface tokens (dark mode) */
-  --color-surface-1: #1a1612;
-  --color-surface-2: #1e1a15;
-  --color-surface-3: #232019;
-  --color-surface-4: #141110;
-
-  /* Secondary accents (dark) */
-  --color-sage: #8ab07a;
-  --color-sage-light: rgba(138, 176, 122, 0.08);
-  --color-honey: #d4b87a;
-  --color-honey-light: rgba(212, 184, 122, 0.1);
-  --color-error: #e05555;
-  --color-error-dark: #c44;
-  --color-success: #8ab07a;
-  --color-success-dark: #6a905a;
 }

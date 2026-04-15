@@ -13,7 +13,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  background: var(--color-bark-dark);
+  background: var(--color-bg-primary);
 }
 
 body {
@@ -30,7 +30,7 @@ html.theme-transitioning body,
 html.theme-transitioning section,
 html.theme-transitioning nav,
 html.theme-transitioning footer {
-  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
+  transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
 }
 
 /* Grain texture overlay */
@@ -40,16 +40,11 @@ body::after {
   inset: 0;
   z-index: var(--z-skip);
   pointer-events: none;
-  opacity: 0.04;
-  mix-blend-mode: multiply;
+  opacity: 0.03;
+  mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
-}
-
-html.dark body::after {
-  mix-blend-mode: soft-light;
-  opacity: 0.06;
 }
 
 img {
@@ -93,11 +88,18 @@ button, input, textarea, select {
   font-size: var(--text-sm);
   letter-spacing: var(--tracking-wider);
   padding: var(--space-md) var(--space-3xl);
-  transition: top var(--transition-fast);
+  clip: auto;
+  white-space: nowrap;
+  transition: top var(--transition-fast), visibility 0s;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed;
   top: var(--space-md);
+  left: var(--space-xl);
+  visibility: visible;
+  z-index: 9999;
 }
 
 /* ============================================
@@ -276,8 +278,8 @@ section[id] {
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 0.7s var(--ease-out),
-    transform 0.7s var(--ease-out);
+    opacity 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
 }
 
 .no-js .reveal {
@@ -328,8 +330,8 @@ section[id] {
   opacity: 0;
   transform: translateX(-32px);
   transition:
-    opacity 0.7s var(--ease-out),
-    transform 0.7s var(--ease-out);
+    opacity 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
 }
 
 .reveal--left.is-visible {
@@ -341,8 +343,8 @@ section[id] {
   opacity: 0;
   transform: scale(0.95);
   transition:
-    opacity 0.7s var(--ease-out),
-    transform 0.7s var(--ease-out);
+    opacity 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
 }
 
 .reveal--scale.is-visible {
@@ -354,8 +356,8 @@ section[id] {
   opacity: 0;
   clip-path: inset(0 0 100% 0);
   transition:
-    opacity 0.7s var(--ease-out),
-    clip-path 0.7s var(--ease-out);
+    opacity 0.25s var(--ease-out),
+    clip-path 0.25s var(--ease-out);
 }
 
 .reveal--clip.is-visible {
@@ -368,8 +370,8 @@ section[id] {
   opacity: 0;
   transform: translateY(16px);
   transition:
-    opacity 0.6s var(--ease-out),
-    transform 0.6s var(--ease-out);
+    opacity 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
 }
 
 .reveal--parallax.is-visible {
@@ -382,18 +384,18 @@ section[id] {
   opacity: 0;
   transform: translateY(20px);
   transition:
-    opacity 0.5s var(--ease-out),
-    transform 0.5s var(--ease-out);
+    opacity 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
 }
 
 .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
-.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.08s; }
-.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
-.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.24s; }
-.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.32s; }
-.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.4s; }
-.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.48s; }
-.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.56s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.03s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.06s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.09s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.12s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.15s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.18s; }
+.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.21s; }
 
 .reveal-stagger.is-visible > * {
   opacity: 1;
@@ -404,7 +406,7 @@ section[id] {
 .divider--animated {
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 0.8s var(--ease-out);
+  transition: transform 0.3s var(--ease-out);
 }
 
 .divider--animated.is-visible {
@@ -415,23 +417,35 @@ section[id] {
    HERO ENTRANCE CHOREOGRAPHY
    ============================================ */
 .hero-enter .hero__label {
-  animation: fadeInUp 0.8s var(--ease-out) 0.1s both;
+  animation: fadeInUp 0.3s var(--ease-out) 0.05s both;
 }
 
 .hero-enter .hero__title {
-  animation: fadeInUp 0.8s var(--ease-out) 0.25s both;
+  animation: fadeInUp 0.3s var(--ease-out) 0.1s both;
 }
 
 .hero-enter .hero__subtitle {
-  animation: fadeInUp 0.8s var(--ease-out) 0.4s both;
+  animation: fadeInUp 0.3s var(--ease-out) 0.15s both;
 }
 
 .hero-enter .hero__actions {
-  animation: fadeInUp 0.8s var(--ease-out) 0.55s both;
+  animation: fadeInUp 0.3s var(--ease-out) 0.2s both;
 }
 
 .hero-enter .hero__right {
-  animation: fadeInUp 0.8s var(--ease-out) 0.35s both;
+  animation: fadeInUp 0.3s var(--ease-out) 0.15s both;
+}
+
+.hero-enter .hero__text-block {
+  animation: fadeInUp 0.3s var(--ease-out) 0.05s both;
+}
+
+.hero-enter .hero__buttons-block {
+  animation: fadeInUp 0.3s var(--ease-out) 0.2s both;
+}
+
+.hero-enter .hero__address-block {
+  animation: fadeInUp 0.3s var(--ease-out) 0.25s both;
 }
 
 .page-loader {
@@ -442,21 +456,19 @@ section[id] {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out);
+  transition: opacity 0.3s var(--ease-out), visibility 0.3s var(--ease-out);
+}
+
+.page-loader__img {
+  width: 12rem;
+  height: auto;
+  animation: loaderPulse 0.4s var(--ease-out) both;
 }
 
 .page-loader--hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
-
-.page-loader__letter {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: clamp(4rem, 12vw, 10rem);
-  color: var(--color-bark);
-  animation: loaderPulse 0.8s var(--ease-out) both;
 }
 
 @keyframes loaderPulse {
@@ -490,39 +502,53 @@ html.page-loaded .page-loader {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .cursor-img {
-    display: none !important;
-  }
-
-  .page-loader__letter {
-    animation: none;
-  }
-
+  /* Explicitly disable animations without !important */
+  .reveal,
   .reveal--left,
   .reveal--scale,
   .reveal--clip,
-  .divider--animated {
-    opacity: 1;
-    transform: none;
-    clip-path: none;
-    transition: none;
-  }
-
+  .reveal--parallax,
+  .reveal-stagger,
+  .divider--animated,
   .hero-enter .hero__label,
   .hero-enter .hero__title,
   .hero-enter .hero__subtitle,
   .hero-enter .hero__actions,
-  .hero-enter .hero__right {
+  .hero-enter .hero__right,
+  .page-loader,
+  .cursor-img {
     animation: none;
+    transition: none;
+  }
+
+  /* Reset to final state immediately */
+  .reveal,
+  .reveal--left,
+  .reveal--scale,
+  .reveal--clip,
+  .reveal--parallax {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .divider--animated {
+    transform: scaleX(1);
+  }
+
+  /* Hide cursor follower for users who can't track motion */
+  .cursor-img {
+    display: none;
+  }
+
+  .page-loader {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -530,7 +556,7 @@ html.page-loaded .page-loader {
    DARK MODE — base overrides
    ============================================ */
 html.dark {
-  background: var(--color-warm-1200);
+  background: var(--color-bg-primary);
 }
 
 html.dark body {

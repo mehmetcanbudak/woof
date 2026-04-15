@@ -2,6 +2,7 @@
  * Navbar scroll effect + active section tracking
  */
 import { $, $$ } from './utils.js';
+import { throttleRAF } from './utils/throttle.js';
 
 const navbar = $('#navbar');
 const links = $$('.navbar__link[href^="#"]');
@@ -34,18 +35,10 @@ const updateActiveLink = () => {
   }
 };
 
-// Throttle scroll handler via requestAnimationFrame
-let ticking = false;
-const onScroll = () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      handleScroll();
-      updateActiveLink();
-      ticking = false;
-    });
-    ticking = true;
-  }
-};
+const onScroll = throttleRAF(() => {
+  handleScroll();
+  updateActiveLink();
+});
 
 if (navbar) {
   window.addEventListener('scroll', onScroll, { passive: true });
