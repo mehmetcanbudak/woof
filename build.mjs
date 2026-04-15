@@ -80,6 +80,13 @@ try {
   cpSync(join(__dirname, 'js'), join(DIST, 'js'), { recursive: true });
 }
 
+// Scripts referenced from HTML but not part of the main bundle (must exist in dist/)
+const inlineScriptSrc = join(__dirname, 'js/inline-script.js');
+if (existsSync(inlineScriptSrc)) {
+  cpSync(inlineScriptSrc, join(DIST, 'js/inline-script.js'));
+  console.log('✓ Copied js/inline-script.js (theme / no-js hook)');
+}
+
 // Concatenate CSS
 const cssFiles = ['css/tokens.css', 'css/base.css', 'css/components.css', 'css/layout.css'];
 let css = cssFiles.map(f => readFileSync(join(__dirname, f), 'utf-8')).join('\n');
