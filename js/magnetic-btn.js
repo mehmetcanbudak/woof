@@ -5,7 +5,7 @@ const STRENGTH = 0.3;
 const RADIUS = 60;
 
 const apply = () => {
-  $$('.btn').forEach((btn) => {
+  $$('.btn:not([disabled])').forEach((btn) => {
     if (btn.dataset.magneticApplied) return;
     btn.dataset.magneticApplied = '1';
     btn.classList.add('btn--magnetic');

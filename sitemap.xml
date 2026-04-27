@@ -12,10 +12,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://woofbox.nyc/404.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.1</priority>
-  </url>
 </urlset>

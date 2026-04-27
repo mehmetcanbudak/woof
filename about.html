@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="js dark">
+<html lang="en" class="no-js dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1a1612">
 <meta name="color-scheme" content="dark">
+<script type="module" src="js/inline-script.js"></script>
 
 <title>About — Woofbox</title>
 <meta name="description" content="Learn about Woofbox - a stylish neighborhood destination in Williamsburg, Brooklyn combining a coffee bar, curated pet goods, and a grooming studio for small-sized pets.">
 
 <!-- Canonical & Favicon -->
-<link rel="canonical" href="https://woofbox.nyc/about">
+<link rel="canonical" href="https://woofbox.nyc/about.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -21,23 +22,36 @@
 <meta property="og:title" content="About — Woofbox">
 <meta property="og:description" content="A stylish neighborhood destination in Williamsburg, Brooklyn for small pets and their humans.">
 <meta property="og:image" content="https://woofbox.nyc/images/hero.jpg">
-<meta property="og:url" content="https://woofbox.nyc/about">
+<meta property="og:url" content="https://woofbox.nyc/about.html">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Woofbox">
+<meta name="twitter:description" content="A stylish neighborhood destination in Williamsburg, Brooklyn for small pets and their humans.">
+<meta name="twitter:image" content="https://woofbox.nyc/images/hero.jpg">
 
 <!-- Resource Hints -->
 <link rel="modulepreload" href="js/main.js">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://maps.google.com">
 
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=General+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=General+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" fetchpriority="high">
 
 <!-- Styles -->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.woofbox.nyc https://*.google.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self'">
+<meta name="robots" content="index, follow">
+<meta name="msapplication-TileColor" content="#1a1612">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://maps.google.com">
 </head>
 <body>
 
@@ -59,7 +73,7 @@
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo" translate="no"><img src="assets/woofbox_logo_white.png" alt="Woofbox Logo" class="navbar__logo-img" width="600" height="210"></a>
       <div class="navbar__links">
-        <a href="index.html#about" class="navbar__link">About</a>
+        <a href="about.html" class="navbar__link">About</a>
         <a href="index.html#shop" class="navbar__link">Shop</a>
         <a href="index.html#grooming" class="navbar__link">Grooming</a>
         <a href="index.html#contact" class="navbar__link">Contact</a>
@@ -79,7 +93,7 @@
 <!-- Mobile Nav Overlay -->
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true" aria-hidden="true">
   <button type="button" class="mobile-nav__close" id="mobileClose" aria-label="Close menu">Close</button>
-  <a href="index.html#about" class="mobile-nav__link">About</a>
+  <a href="about.html" class="mobile-nav__link">About</a>
   <a href="index.html#shop" class="mobile-nav__link">Shop</a>
   <a href="index.html#grooming" class="mobile-nav__link">Grooming</a>
   <a href="index.html#contact" class="mobile-nav__link">Contact</a>
@@ -128,12 +142,6 @@
      BOOKING
      ============================================ -->
 <section class="booking reveal" id="booking">
-  <div class="booking__particles" aria-hidden="true">
-    <div class="booking__particle"></div>
-    <div class="booking__particle"></div>
-    <div class="booking__particle"></div>
-    <div class="booking__particle"></div>
-  </div>
   <div class="container">
     <div class="booking__inner">
       <h2 class="heading-section booking__heading"><em>Woof</em> needs Grooming?</h2>
@@ -177,10 +185,10 @@
       <div>
         <p class="footer__heading">Navigate</p>
         <div class="footer__links">
-          <a href="index.html#about" class="footer__link">About</a>
+          <a href="about.html" class="footer__link">About</a>
           <a href="index.html#shop" class="footer__link">Coffee & Shop</a>
           <a href="index.html#grooming" class="footer__link">Grooming</a>
-          <a href="index.html#booking" class="footer__link" data-booking-trigger>Book Now</a>
+          <a href="tel:+17185551234" class="footer__link" data-booking-trigger>Book Now</a>
           <a href="index.html#contact" class="footer__link">Contact</a>
         </div>
       </div>

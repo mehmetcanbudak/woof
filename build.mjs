@@ -125,36 +125,42 @@ writeFileSync(join(DIST, cssHashed), css);
 console.log(`✓ CSS → ${cssHashed} (${(css.length / 1024).toFixed(1)}KB)`);
 
 // Process HTML — update references for production
-let html = readFileSync(join(__dirname, 'index.html'), 'utf-8');
+const htmlFiles = ['index.html', 'about.html', '404.html'];
 
-// Strip HTML comments from production output
-html = html.replace(/<!--[\s\S]*?-->/g, '');
+for (const htmlFile of htmlFiles) {
+  if (!existsSync(join(__dirname, htmlFile))) continue;
 
-// Replace multiple local CSS link tags with single hashed CSS
-let cssReplaced = false;
-html = html.replace(
-  /<link\s+rel="stylesheet"\s+href="css\/[^"]+\.css"[^>]*>/g,
-  () => {
-    if (!cssReplaced) {
-      cssReplaced = true;
-      return `<link rel="stylesheet" href="${cssHashed}">`;
+  let html = readFileSync(join(__dirname, htmlFile), 'utf-8');
+
+  // Strip HTML comments from production output
+  html = html.replace(/<!--[\s\S]*?-->/g, '');
+
+  // Replace multiple local CSS link tags with single hashed CSS
+  let cssReplaced = false;
+  html = html.replace(
+    /<link\s+rel="stylesheet"\s+href="css\/[^"]+\.css"[^>]*>/g,
+    () => {
+      if (!cssReplaced) {
+        cssReplaced = true;
+        return `<link rel="stylesheet" href="${cssHashed}">`;
+      }
+      return '';
     }
-    return '';
-  }
-);
+  );
 
-// Replace JS reference with hashed version (both script src and modulepreload href)
-html = html.replace(
-  /src="js\/main\.js"/,
-  `src="${jsOutFile}"`
-);
-html = html.replace(
-  /href="js\/main\.js"/,
-  `href="${jsOutFile}"`
-);
+  // Replace JS reference with hashed version (both script src and modulepreload href)
+  html = html.replace(
+    /src="js\/main\.js"/,
+    `src="${jsOutFile}"`
+  );
+  html = html.replace(
+    /href="js\/main\.js"/,
+    `href="${jsOutFile}"`
+  );
 
-writeFileSync(join(DIST, 'index.html'), html);
-console.log('✓ HTML processed with hashed asset references');
+  writeFileSync(join(DIST, htmlFile), html);
+  console.log(`✓ ${htmlFile} processed with hashed asset references`);
+}
 
 // Summary
 console.log('\n📦 Build complete! Output in ./dist/');

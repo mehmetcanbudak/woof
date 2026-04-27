@@ -4,8 +4,8 @@
   "description": "Coffee, curated goods, and a grooming studio for small pets in Williamsburg, Brooklyn.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#faf8f5",
-  "theme_color": "#3a322a",
+  "background_color": "#1a1612",
+  "theme_color": "#1a1612",
   "icons": [
     {
       "src": "favicon.svg",

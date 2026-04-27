@@ -93,11 +93,15 @@ if (!prefersReducedMotion()) enable();
 
 watchReducedMotion(enable, disable);
 
-const preloadImages = () => {
-  for (const { src } of Object.values(hoverData)) {
-    const img = new Image();
-    img.src = src;
-  }
-};
-if (document.readyState === 'complete') preloadImages();
-else window.addEventListener('load', preloadImages);
+// Only preload if there are hover targets on the page
+const hoverTargets = $$('[data-hover-img]');
+if (hoverTargets.length) {
+  const preloadImages = () => {
+    for (const { src } of Object.values(hoverData)) {
+      const img = new Image();
+      img.src = src;
+    }
+  };
+  if (document.readyState === 'complete') preloadImages();
+  else window.addEventListener('load', preloadImages);
+}

@@ -13,6 +13,7 @@ import './lazy-map.js';
 import './page-load.js';
 import './scroll-progress.js';
 import './magnetic-btn.js';
+import './gallery-tilt.js';
 
 // Shared keyboard handler — Escape closes topmost overlay
 document.addEventListener('keydown', (e) => {
