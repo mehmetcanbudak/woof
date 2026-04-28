@@ -21,7 +21,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 0.85rem 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .navbar__inner {
@@ -31,16 +31,12 @@
 }
 
 .navbar__logo {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: 1.45rem;
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-cream);
-  transition: color var(--duration-slower) ease;
+  display: block;
+  transition: opacity var(--duration-slower) ease;
 }
 
-.navbar--scrolled .navbar__logo {
-  color: var(--color-bark);
+.navbar__logo:hover {
+  opacity: 0.85;
 }
 
 .navbar__links {
@@ -89,11 +85,11 @@
 }
 
 .navbar--scrolled .navbar__link:hover {
-  color: var(--color-bark);
+  color: var(--color-cream);
 }
 
 .navbar--scrolled .navbar__link--active {
-  color: var(--color-bark);
+  color: var(--color-cream);
 }
 
 .navbar__cta {
@@ -118,13 +114,14 @@
 }
 
 .navbar--scrolled .navbar__cta {
-  background: var(--color-bark);
-  color: var(--color-cream);
-  border-color: var(--color-bark);
+  background: var(--color-coral);
+  color: var(--color-surface-1);
+  border-color: var(--color-coral);
 }
 
 .navbar--scrolled .navbar__cta:hover {
-  background: var(--color-bark-dark);
+  background: var(--color-coral-dark);
+  border-color: var(--color-coral-dark);
 }
 
 .navbar__actions {
@@ -157,7 +154,7 @@
 }
 
 .navbar--scrolled .navbar__mobile-toggle span {
-  background: var(--color-bark);
+  background: var(--color-cream);
 }
 
 .navbar__mobile-toggle.active span:nth-child(1) {
@@ -173,7 +170,7 @@
 }
 
 .navbar--scrolled .navbar__mobile-toggle.active span {
-  background: var(--color-bark);
+  background: var(--color-cream);
 }
 
 /* ============================================
@@ -187,7 +184,7 @@
   min-height: 700px;
   display: flex;
   align-items: flex-end;
-  background: var(--color-warm-500);
+  background: var(--color-surface-4);
   margin-bottom: 0;
 }
 
@@ -200,7 +197,7 @@
   font-family: var(--font-serif);
   font-size: clamp(15rem, 25vw, 28rem);
   font-weight: 400;
-  color: rgba(250, 248, 245, 0.07);
+  color: rgba(255, 255, 255, 0.04);
   z-index: 2;
   pointer-events: none;
   line-height: 1;
@@ -228,9 +225,9 @@
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(212, 117, 90, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(196, 168, 106, 0.08) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.0) 30%, rgba(0, 0, 0, 0.4) 100%);
+    radial-gradient(ellipse at 20% 80%, rgba(224, 136, 104, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 184, 122, 0.06) 0%, transparent 40%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.0) 30%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .hero__content {
@@ -354,7 +351,7 @@
 .about-hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--color-surface-2) 0%, var(--color-bg-primary) 100%);
+  background: linear-gradient(135deg, var(--color-surface-2) 0%, var(--color-surface-1) 100%);
   z-index: -1;
 }
 
@@ -366,7 +363,7 @@
    ABOUT
    ============================================ */
 .about {
-  background: var(--color-bg-primary);
+  background: var(--color-surface-1);
   position: relative;
 }
 
@@ -399,7 +396,7 @@
   right: -1.5rem;
   bottom: -1.5rem;
   border: 1px solid var(--color-coral);
-  opacity: 0.2;
+  opacity: 0.25;
   border-radius: var(--radius-xs);
   z-index: -1;
 }
@@ -408,7 +405,7 @@
    SHOP (COFFEE + MERCH)
    ============================================ */
 .shop {
-  background: var(--color-bg-secondary);
+  background: var(--color-surface-3);
   position: relative;
 }
 
@@ -458,7 +455,7 @@
 }
 
 .shop__column {
-  background: var(--color-surface-3);
+  background: var(--color-surface-2);
   padding: clamp(2rem, 4vw, 3.5rem);
   position: relative;
 }
@@ -501,6 +498,20 @@
   border-radius: var(--radius-xs);
 }
 
+.shop__featured--highlight {
+  background: rgba(224, 136, 104, 0.08);
+  border-left: 3px solid var(--color-coral);
+  padding-left: calc(var(--space-xl) - 3px);
+}
+
+.shop__featured--highlight .shop__featured-text {
+  color: var(--color-cream);
+}
+
+.shop__featured--highlight .shop__featured-sub {
+  color: var(--color-warm-800);
+}
+
 .shop__featured-text {
   font-family: var(--font-sans);
   font-weight: 400;
@@ -518,7 +529,7 @@
    GROOMING
    ============================================ */
 .grooming {
-  background: var(--color-bg-secondary);
+  background: var(--color-surface-3);
   position: relative;
 }
 
@@ -567,7 +578,7 @@
 }
 
 .grooming__services {
-  background: var(--color-bg-primary);
+  background: var(--color-surface-2);
   padding: clamp(2rem, 4vw, 3rem);
 }
 
@@ -579,8 +590,8 @@
    BOOKING CTA
    ============================================ */
 .booking {
-  background: var(--color-bark);
-  background-image: radial-gradient(ellipse at 50% 50%, rgba(196, 168, 106, 0.15) 0%, transparent 65%);
+  background: var(--color-surface-4);
+  background-image: radial-gradient(ellipse at 50% 50%, rgba(212, 184, 122, 0.12) 0%, transparent 65%);
   padding: clamp(3.5rem, 7vw, 5.5rem) 0;
   text-align: center;
   position: relative;
@@ -613,7 +624,7 @@
 }
 
 .booking__badges .note-badge {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--color-warm-900);
 }
 
@@ -621,7 +632,7 @@
    CONTACT + MAP
    ============================================ */
 .contact {
-  background: var(--color-bg-secondary);
+  background: var(--color-surface-3);
   padding: var(--section-padding) 0;
 }
 
@@ -675,17 +686,17 @@
 }
 
 .contact__detail-text a {
-  border-bottom: 1px solid var(--color-warm-400);
+  border-bottom: 1px solid var(--color-warm-500);
   transition: border-color var(--transition-base);
 }
 
 .contact__detail-text a:hover {
-  border-color: var(--color-bark);
+  border-bottom-color: var(--color-coral);
 }
 
 .contact__map {
   position: relative;
-  background: var(--color-bg-tertiary);
+  background: var(--color-surface-2);
   min-height: 280px;
   height: 100%;
   display: flex;
@@ -716,7 +727,7 @@
   width: 100%;
   height: 100%;
   min-height: 280px;
-  background: var(--color-bg-tertiary);
+  background: var(--color-surface-2);
   cursor: pointer;
   border: none;
   color: var(--color-text-muted);
@@ -753,11 +764,11 @@
    FOOTER
    ============================================ */
 .footer {
-  background: linear-gradient(180deg, var(--color-bark) 0%, var(--color-bark-dark) 100%);
-  color: rgba(250, 248, 245, 0.6);
+  background: linear-gradient(180deg, var(--color-surface-2) 0%, var(--color-surface-4) 100%);
+  color: rgba(232, 226, 219, 0.65);
   padding: 3.5rem 0 2rem;
   position: relative;
-  box-shadow: 0 100vh 0 0 var(--color-bark-dark);
+  box-shadow: 0 100vh 0 0 var(--color-surface-4);
 }
 
 .footer::before {
@@ -767,8 +778,8 @@
   left: 5%;
   right: 5%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-coral), var(--color-honey), var(--color-coral), transparent);
-  opacity: 0.4;
+  background: linear-gradient(90deg, transparent, rgba(224, 136, 104, 0.2), transparent);
+  opacity: 1;
 }
 
 .footer__inner {
@@ -798,7 +809,7 @@
   font-size: var(--text-sm);
   letter-spacing: var(--tracking-mega);
   text-transform: uppercase;
-  color: rgba(250, 248, 245, 0.5);
+  color: rgba(232, 226, 219, 0.5);
   margin-bottom: 1.25rem;
 }
 
@@ -810,6 +821,7 @@
 
 .footer__link {
   font-size: var(--text-xl);
+  color: rgba(232, 226, 219, 0.65);
   transition: color var(--transition-base);
 }
 
@@ -830,8 +842,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: rgba(232, 226, 219, 0.65);
   transition: color var(--transition-base), transform var(--transition-base);
 }
 
@@ -842,7 +855,7 @@
 
 .footer__social-link:hover {
   color: var(--color-cream);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.1);
 }
 
 /* Instagram hover */
@@ -856,7 +869,7 @@
 }
 
 .footer__bottom {
-  border-top: 1px solid rgba(250, 248, 245, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -867,7 +880,7 @@
 
 .footer__copy {
   font-size: var(--text-md);
-  color: rgba(250, 248, 245, 0.5);
+  color: rgba(232, 226, 219, 0.65);
 }
 
 .footer__bottom-links {
@@ -877,17 +890,22 @@
 
 .footer__bottom-link {
   font-size: var(--text-md);
-  color: rgba(250, 248, 245, 0.5);
+  color: rgba(232, 226, 219, 0.65);
   transition: color var(--transition-base);
 }
 
 .footer__bottom-link:hover {
-  color: rgba(250, 248, 245, 0.75);
+  color: rgba(232, 226, 219, 0.8);
 }
 
 .footer__bottom-link[aria-disabled="true"]:hover {
-  color: rgba(250, 248, 245, 0.5);
+  color: rgba(232, 226, 219, 0.65);
   text-decoration: none;
+  cursor: default;
+}
+
+.footer__bottom-link[aria-disabled="true"] {
+  opacity: 0.5;
   cursor: default;
 }
 
@@ -934,12 +952,12 @@
 .mobile-nav__link {
   font-family: var(--font-serif);
   font-size: 1.75rem;
-  color: var(--color-bark);
+  color: var(--color-cream);
   transition: opacity var(--transition-base);
 }
 
 .mobile-nav__link:hover {
-  opacity: 0.6;
+  color: var(--color-warm-700);
 }
 
 .mobile-nav__link--cta {
@@ -954,7 +972,7 @@
   font-size: var(--text-md);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-warm-700);
   cursor: pointer;
   padding: var(--space-xs);
   appearance: none;
@@ -1027,6 +1045,14 @@
     width: 100%;
     margin-right: 0;
     transform: rotate(0deg);
+  }
+
+  .about__gallery::after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
   }
 
   .grooming__inner {
@@ -1174,211 +1200,4 @@
   .hero__content {
     padding: var(--space-xl) 0;
   }
-}
-
-/* ============================================
-   DARK MODE — layout overrides
-   ============================================ */
-
-/* Navbar */
-html.dark .navbar--scrolled {
-  background: var(--color-overlay-bg);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-html.dark .navbar--scrolled .navbar__logo {
-  color: var(--color-cream);
-}
-
-html.dark .navbar--scrolled .navbar__link {
-  color: var(--color-warm-900);
-}
-
-html.dark .navbar--scrolled .navbar__link:hover {
-  color: var(--color-cream);
-}
-
-html.dark .navbar--scrolled .navbar__link--active {
-  color: var(--color-cream);
-}
-
-html.dark .navbar--scrolled .navbar__cta {
-  background: var(--color-coral);
-  color: var(--color-surface-1);
-  border-color: var(--color-coral);
-}
-
-html.dark .navbar--scrolled .navbar__cta:hover {
-  background: var(--color-coral-dark);
-  border-color: var(--color-coral-dark);
-}
-
-html.dark .navbar--scrolled .navbar__mobile-toggle span {
-  background: var(--color-cream);
-}
-
-html.dark .navbar--scrolled .navbar__mobile-toggle.active span {
-  background: var(--color-cream);
-}
-
-/* Hero */
-html.dark .hero {
-  background: var(--color-surface-4);
-}
-
-html.dark .hero::before {
-  color: rgba(255, 255, 255, 0.04);
-}
-
-html.dark .hero__bg::after {
-  background:
-    radial-gradient(ellipse at 20% 80%, rgba(224, 136, 104, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(212, 184, 122, 0.06) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.0) 30%, rgba(0, 0, 0, 0.5) 100%);
-}
-
-/* Sections — force dark backgrounds */
-html.dark .about {
-  background: var(--color-surface-1);
-}
-
-html.dark .shop {
-  background: var(--color-surface-3);
-}
-
-html.dark .shop__column {
-  background: var(--color-surface-2);
-}
-
-html.dark .grooming {
-  background: var(--color-surface-3);
-}
-
-html.dark .grooming__services {
-  background: var(--color-surface-2);
-}
-
-html.dark .contact {
-  background: var(--color-surface-3);
-}
-
-html.dark .contact__map {
-  background: var(--color-surface-2);
-}
-
-html.dark .contact__map-placeholder {
-  background: var(--color-surface-2);
-}
-
-/* About gallery accent border */
-html.dark .about__gallery::after {
-  border-color: var(--color-coral);
-  opacity: 0.25;
-}
-
-/* Booking section — deepest surface for CTA emphasis */
-html.dark .booking {
-  background: var(--color-surface-4);
-  background-image: radial-gradient(ellipse at 50% 50%, rgba(212, 184, 122, 0.12) 0%, transparent 65%);
-}
-
-html.dark .booking__heading {
-  color: var(--color-cream);
-}
-
-html.dark .booking__text {
-  color: var(--color-warm-1000);
-}
-
-html.dark .booking__badges .note-badge {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--color-warm-900);
-}
-
-html.dark .contact__detail-text a {
-  border-bottom-color: var(--color-warm-500);
-}
-
-html.dark .contact__detail-text a:hover {
-  border-bottom-color: var(--color-coral);
-}
-
-/* Footer — stays dark, slightly adjusted */
-html.dark .footer {
-  background: linear-gradient(180deg, var(--color-surface-2) 0%, var(--color-surface-4) 100%);
-  box-shadow: 0 100vh 0 0 var(--color-surface-4);
-}
-
-html.dark .footer::before {
-  background: linear-gradient(90deg, transparent, rgba(224, 136, 104, 0.2), transparent);
-}
-
-html.dark .footer__brand-name {
-  color: var(--color-cream);
-}
-
-html.dark .footer__brand-text {
-  color: rgba(232, 226, 219, 0.65);
-}
-
-html.dark .footer__heading {
-  color: rgba(232, 226, 219, 0.5);
-}
-
-html.dark .footer__link {
-  color: rgba(232, 226, 219, 0.65);
-}
-
-html.dark .footer__link:hover {
-  color: var(--color-cream);
-}
-
-html.dark .footer__social-link {
-  color: rgba(232, 226, 219, 0.65);
-}
-
-html.dark .footer__social-link:hover {
-  color: var(--color-cream);
-}
-
-html.dark .footer__bottom {
-  border-top-color: rgba(255, 255, 255, 0.06);
-}
-
-html.dark .footer__copy {
-  color: rgba(232, 226, 219, 0.65);
-}
-
-html.dark .footer__bottom-link {
-  color: rgba(232, 226, 219, 0.65);
-}
-
-html.dark .footer__bottom-link:hover {
-  color: rgba(232, 226, 219, 0.8);
-}
-
-html.dark .footer__bottom-link[aria-disabled="true"]:hover {
-  color: rgba(232, 226, 219, 0.65);
-}
-
-html.dark .footer__social-link[aria-disabled="true"]:hover {
-  color: inherit;
-}
-
-/* Mobile nav overlay */
-html.dark .mobile-nav {
-  background: rgba(20, 17, 14, 0.98);
-  background-image: radial-gradient(circle at 30% 20%, rgba(224, 136, 104, 0.04) 0%, transparent 50%);
-}
-
-html.dark .mobile-nav__link {
-  color: var(--color-cream);
-}
-
-html.dark .mobile-nav__link:hover {
-  color: var(--color-warm-700);
-}
-
-html.dark .mobile-nav__close {
-  color: var(--color-warm-700);
 }

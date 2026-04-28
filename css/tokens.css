@@ -52,7 +52,7 @@
 
   /* Overlay surfaces */
   --color-overlay-bg: rgba(69, 64, 64, 0.97);
-  --color-overlay-solid: rgba(69, 64, 64, 0.98);
+  --color-overlay-solid: rgba(20, 17, 14, 0.98);
 
   /* Spacing */
   --space-2xs: 0.25rem;
@@ -79,7 +79,7 @@
   --text-lg: 0.85rem;
   --text-xl: 0.875rem;
   --text-base: 1rem;
-  --text-body: 1.0625rem;
+  --text-body: 1.125rem;
   --text-sub: 1.1875rem;
   --text-title: 1.3125rem;
   --text-mega: clamp(4rem, 10vw, 8rem);

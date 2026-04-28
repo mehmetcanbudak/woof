@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="no-js dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1a1612">
 <meta name="color-scheme" content="dark">
+<script>document.documentElement.classList.replace('no-js','js');document.documentElement.classList.add('dark');</script>
 <title>Page Not Found — Woofbox</title>
 <meta name="description" content="The page you're looking for doesn't exist. Return to Woofbox homepage.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://woofbox.nyc/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=General+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
 <style>
-main {
-  min-height: 80vh;
+.error-content {
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +44,7 @@ main {
   font-size: var(--text-mega);
   font-weight: 500;
   margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
 }
 .error-text {
   font-size: var(--text-lg);
@@ -44,41 +53,48 @@ main {
   max-width: 40ch;
   margin-inline: auto;
 }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-md) var(--space-2xl);
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  background: var(--color-bark);
-  color: var(--color-cream);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background var(--transition-base), transform var(--transition-fast);
-}
-.btn:hover {
-  background: var(--color-coral);
-  transform: translateY(-2px);
-}
-.btn:focus {
-  outline: var(--focus-ring-width) solid var(--focus-ring-color);
-  outline-offset: var(--focus-ring-offset);
-}
 </style>
 </head>
 <body>
-<main id="main">
+
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" translate="no"><img src="assets/woofbox_logo_white.png" alt="Woofbox Logo" class="navbar__logo-img" width="600" height="210"></a>
+      <div class="navbar__links">
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="index.html#shop" class="navbar__link">Shop</a>
+        <a href="index.html#grooming" class="navbar__link">Grooming</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+      </div>
+      <div class="navbar__actions">
+        <a href="index.html" class="navbar__cta">Home</a>
+      </div>
+      <button type="button" class="navbar__mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="error-content">
   <div>
     <p class="error-code" aria-hidden="true">404</p>
     <h1 class="error-title">Page Not Found</h1>
     <p class="error-text">The page you're looking for doesn't exist or may have been moved. Let's get you back on track.</p>
-    <a href="/" class="btn">Return Home</a>
+    <a href="/" class="btn btn--coral">Return Home</a>
   </div>
 </main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom" style="border-top: none; padding-top: 0; justify-content: center;">
+      <p class="footer__copy">&copy; 2026 Woofbox. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

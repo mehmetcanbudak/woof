@@ -37,24 +37,24 @@
 }
 
 .btn--primary {
-  background: var(--color-bark);
-  color: var(--color-cream);
+  background: var(--color-warm-1100);
+  color: var(--color-warm-50);
 }
 
 .btn--primary:hover {
-  background: var(--color-bark-dark);
-  box-shadow: var(--shadow-md);
+  background: var(--color-warm-1200);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
 .btn--outline {
   background: transparent;
   color: var(--color-cream);
-  border: 1px solid rgba(250, 248, 245, 0.6);
+  border: 1px solid var(--color-warm-600);
 }
 
 .btn--outline:hover {
-  background: rgba(250, 248, 245, 0.1);
-  border-color: rgba(250, 248, 245, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-cream);
 }
 
 .btn--coral {
@@ -64,7 +64,7 @@
 
 .btn--coral:hover {
   background: var(--color-coral-dark);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
 .btn[aria-busy="true"] {
@@ -74,12 +74,6 @@
 
 .btn:active:not([aria-busy="true"]) {
   transform: scale(0.97);
-}
-
-.btn--magnetic {
-  transition:
-    background var(--duration-slow) var(--ease-out),
-    transform 0.15s var(--ease-out);
 }
 
 /* ============================================
@@ -96,8 +90,8 @@
   text-transform: uppercase;
   padding: 0.55rem var(--space-xl);
   border-radius: var(--radius-xs);
-  background: rgba(212, 117, 90, 0.08);
-  color: var(--color-coral-dark);
+  background: rgba(224, 136, 104, 0.1);
+  color: var(--color-coral);
 }
 
 
@@ -126,7 +120,7 @@
 
 .menu-row:hover {
   padding-left: var(--space-xs);
-  background: rgba(0, 0, 0, 0.012);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .menu-row__name {
@@ -190,7 +184,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-xs);
-  background: var(--color-bg-tertiary);
+  background: var(--color-surface-2);
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -216,7 +210,7 @@
 
 .merch-bento__item:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
 }
 
 .merch-bento__item:active {
@@ -266,7 +260,7 @@
 .merch-bento__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(58, 50, 42, 0.55) 0%, rgba(58, 50, 42, 0.0) 60%);
+  background: linear-gradient(to top, rgba(14, 12, 10, 0.6) 0%, rgba(14, 12, 10, 0.0) 60%);
   z-index: 1;
 }
 
@@ -284,7 +278,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-xs);
-  background: var(--color-bg-tertiary);
+  background: var(--color-surface-2);
   min-height: 140px;
   display: flex;
   align-items: center;
@@ -294,7 +288,7 @@
 }
 
 .gallery__item:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
 }
 
 .gallery__item:active {
@@ -333,7 +327,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(30, 26, 22, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   opacity: 0;
@@ -347,7 +341,7 @@
 }
 
 .booking-modal__panel {
-  background: var(--color-bg-primary);
+  background: var(--color-surface-1);
   width: 90%;
   max-width: 640px;
   max-height: 88vh;
@@ -380,7 +374,7 @@
 }
 
 .booking-modal__close:hover {
-  color: var(--color-text-primary);
+  color: var(--color-warm-1200);
 }
 
 .booking-modal__close svg {
@@ -415,9 +409,92 @@
   font-size: var(--text-body);
   color: var(--color-text-muted);
   margin-bottom: var(--space-2xl);
-  max-width: 320px;
+  max-width: 360px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.waitlist-form {
+  margin-bottom: var(--space-lg);
+}
+
+.waitlist-form__field {
+  display: flex;
+  gap: var(--space-xs);
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.waitlist-form__input {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  border-radius: var(--radius-xs);
+  transition: border-color var(--transition-base);
+}
+
+.waitlist-form__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.waitlist-form__input:focus {
+  border-color: var(--color-coral);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(224, 136, 104, 0.2);
+}
+
+.waitlist-form__input:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: var(--color-error);
+}
+
+.waitlist-form__btn {
+  flex-shrink: 0;
+  padding: 0.65rem 1.2rem;
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.waitlist-form__msg {
+  font-size: var(--text-sm);
+  text-align: center;
+  margin-top: var(--space-sm);
+  min-height: 1.2em;
+  color: var(--color-text-muted);
+}
+
+.waitlist-form__msg--success {
+  color: var(--color-success);
+}
+
+.waitlist-form__msg--error {
+  color: var(--color-error);
+}
+
+.coming-soon__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.coming-soon__divider::before,
+.coming-soon__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.coming-soon__call {
+  font-size: var(--text-xs);
 }
 
 /* ============================================
@@ -434,8 +511,8 @@
   opacity: 0;
   transform: scale(0.85) translate(4px, 4px);
   transition: opacity 0.15s var(--ease-out), transform 0.15s var(--ease-out);
-  box-shadow: var(--shadow-lg);
-  background: var(--color-warm-300);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  background: var(--color-surface-2);
 }
 
 @media (hover: none) {
@@ -482,99 +559,15 @@
   transition: color var(--transition-base), transform var(--transition-base);
 }
 
-/* ============================================
-   DARK MODE — component overrides
-   ============================================ */
-
-/* Buttons */
-html.dark .btn--primary {
-  background: var(--color-warm-1100);
-  color: var(--color-warm-50);
-}
-
-html.dark .btn--primary:hover {
-  background: var(--color-warm-1200);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-}
-
-html.dark .btn--outline {
-  color: var(--color-cream);
-  border-color: var(--color-warm-600);
-}
-
-html.dark .btn--outline:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: var(--color-cream);
-}
-
-html.dark .btn--coral:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* Note badges */
-html.dark .note-badge {
-  background: rgba(224, 136, 104, 0.1);
-  color: var(--color-coral);
-}
-
-html.dark .note-badge:hover {
-  background: rgba(224, 136, 104, 0.16);
-}
-
-/* Menu rows */
-html.dark .menu-row:hover {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-/* Merch bento */
-html.dark .merch-bento__item {
-  background: var(--color-surface-2);
-}
-
-html.dark .merch-bento__item:hover {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
-}
-
-html.dark .merch-bento__overlay {
-  background: linear-gradient(to top, rgba(14, 12, 10, 0.6) 0%, rgba(14, 12, 10, 0.0) 60%);
-}
-
-/* Gallery */
-html.dark .gallery__item {
-  background: var(--color-surface-2);
-}
-
-html.dark .gallery__item:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
-}
-
-/* Booking modal */
-html.dark .booking-modal {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-html.dark .booking-modal__panel {
-  background: var(--color-surface-1);
-}
-
-html.dark .booking-modal__close:hover {
-  color: var(--color-warm-1200);
-}
-
-/* Cursor hover image */
-html.dark .cursor-img {
-  background: var(--color-surface-2);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
-}
-
-html.dark .cursor-img__inner {
-  color: var(--color-warm-700);
-}
-
 @media (hover: none) {
   .menu-row:hover {
     padding-left: 0;
     background: none;
+  }
+
+  .menu-row:active {
+    background: rgba(255, 255, 255, 0.04);
+    transform: scale(0.98);
   }
 
   .merch-bento__item:hover {
@@ -592,5 +585,10 @@ html.dark .cursor-img__inner {
 
   .gallery__item:hover img {
     transform: none;
+  }
+
+  .merch-bento__item:active {
+    transform: scale(0.97);
+    opacity: 0.9;
   }
 }

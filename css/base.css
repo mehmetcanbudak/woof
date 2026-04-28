@@ -138,7 +138,7 @@ button, input, textarea, select {
 .heading-display {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(3.2rem, 7.5vw, 6rem);
+  font-size: clamp(4rem, 9vw, 7.5rem);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
 }
@@ -410,20 +410,4 @@ html.page-loaded .page-loader {
     opacity: 0;
     visibility: hidden;
   }
-}
-
-/* ============================================
-   DARK MODE — base overrides
-   ============================================ */
-html.dark {
-  background: var(--color-bg-primary);
-}
-
-html.dark body {
-  background: var(--color-bg-primary);
-}
-
-html.dark .skip-link {
-  background: var(--color-warm-1100);
-  color: var(--color-warm-50);
 }

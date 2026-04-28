@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1a1612">
 <meta name="color-scheme" content="dark">
-<script type="module" src="js/inline-script.js"></script>
+<script>document.documentElement.classList.replace('no-js','js');document.documentElement.classList.add('dark');</script>
 <title>Woofbox — Williamsburg, Brooklyn</title>
 <meta name="description" content="Woofbox is a stylish neighborhood destination in Williamsburg, Brooklyn combining a coffee bar, curated pet goods, and a grooming studio for small-sized pets.">
 
@@ -50,6 +50,7 @@
 
 <!-- Preload hero LCP image (CSS background-image is discovered late) -->
 <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/woofbox_logo_white.png" fetchpriority="high">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -291,7 +292,7 @@
           </div>
         </div>
         
-        <div class="shop__featured">
+        <div class="shop__featured shop__featured--highlight">
           <p class="shop__featured-text">Puppuccino — $3<br><span class="shop__featured-sub">A little whipped cream moment. Because they deserve it.</span></p>
         </div>
       </div>
@@ -454,7 +455,7 @@
             <circle cx="12" cy="10" r="3"/>
           </svg>
           <span>214 Grand St, Brooklyn</span>
-          <span class="contact__map-hint">Click or scroll to load map</span>
+          <span class="contact__map-hint">Map loads automatically</span>
         </button>
       </div>
     </div>
@@ -472,8 +473,16 @@
     <div class="coming-soon">
       <p class="coming-soon__label">Coming Soon</p>
       <h3 class="coming-soon__heading">Online Booking</h3>
-      <p class="coming-soon__text">We're working on it. Call us to book your appointment.</p>
-      <a href="tel:+17185551234" class="btn btn--coral">(718) 555-1234</a>
+      <p class="coming-soon__text">We're working on it. Get notified when it launches, or call us to book now.</p>
+      <form class="waitlist-form" id="waitlistForm" novalidate>
+        <div class="waitlist-form__field">
+          <input type="email" id="waitlistEmail" class="waitlist-form__input" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+          <button type="submit" class="waitlist-form__btn btn btn--coral">Notify me</button>
+        </div>
+        <p class="waitlist-form__msg" id="waitlistMsg" aria-live="polite"></p>
+      </form>
+      <div class="coming-soon__divider"><span>or</span></div>
+      <a href="tel:+17185551234" class="btn btn--outline coming-soon__call">(718) 555-1234</a>
     </div>
   </div>
 </div>
@@ -512,7 +521,7 @@
           <a href="https://www.instagram.com/woofbox/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <button type="button" class="footer__social-link" aria-label="TikTok (coming soon)" disabled>
+          <button type="button" class="footer__social-link" aria-label="TikTok (coming soon)" title="Coming soon" disabled>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.17v-3.44a4.85 4.85 0 01-3.59-1.37V6.69h3.59z"/></svg>
           </button>
           <a href="https://www.youtube.com/@woofbox" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="YouTube">
@@ -524,8 +533,8 @@
     <div class="footer__bottom">
       <p class="footer__copy">&copy; 2026 Woofbox. All rights reserved.</p>
       <div class="footer__bottom-links">
-          <span class="footer__bottom-link" aria-disabled="true">Privacy</span>
-          <span class="footer__bottom-link" aria-disabled="true">Terms</span>
+          <span class="footer__bottom-link" aria-disabled="true" title="Coming soon">Privacy</span>
+          <span class="footer__bottom-link" aria-disabled="true" title="Coming soon">Terms</span>
         </div>
     </div>
   </div>
